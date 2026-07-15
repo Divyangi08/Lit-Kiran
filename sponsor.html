@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sponsor a child's education with Lit Kiran. Change a life through education with our child sponsorship program.">
+    <title>Sponsor a Child | Lit Kiran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        /* Hero Sections */
+        .page-hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+            z-index: -1;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-light {
+            background-color: white;
+        }
+
+        .section-gray {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .process-step {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background: white;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            background-color: var(--primary-color);
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .benefit-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Children Grid */
+        .children-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .child-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .child-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .urgency-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .child-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .child-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .child-card:hover .child-image img {
+            transform: scale(1.05);
+        }
+
+        .child-info {
+            padding: var(--spacing-lg);
+        }
+
+        .child-info h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .sponsorship-progress {
+            height: 8px;
+            background-color: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: var(--spacing-md) 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Form Styles */
+        .sponsor-form-container {
+            background-color: var(--primary-color);
+            color: white;
+            padding: var(--spacing-xl) 0;
+        }
+
+        .sponsor-form {
+            background: white;
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-xl);
+            color: var(--dark-color);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .sponsor-form h2 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .sponsor-form > p {
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-color);
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group label i {
+            margin-right: 8px;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-family: var(--body-font);
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group.checkbox {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .form-group.checkbox input {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .form-group.checkbox label {
+            font-weight: normal;
+            line-height: 1.5;
+        }
+
+        .error-message {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .form-group.error input, 
+        .form-group.error select, 
+        .form-group.error textarea {
+            border-color: var(--accent-color);
+        }
+
+        .form-group.success input, 
+        .form-group.success select, 
+        .form-group.success textarea {
+            border-color: var(--success-color);
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Success Stories */
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            margin: var(--spacing-xl) 0;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            padding: 0 var(--spacing-sm);
+            box-sizing: border-box;
+        }
+
+        .story-card {
+            display: flex;
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .story-image {
+            flex: 0 0 40%;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-content {
+            flex: 0 0 60%;
+            padding: var(--spacing-xl);
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            border-left: 3px solid var(--primary-color);
+            padding-left: var(--spacing-md);
+            color: var(--dark-color);
+            margin: var(--spacing-md) 0;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: var(--spacing-lg);
+            gap: var(--spacing-xs);
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background-color: var(--primary-color);
+        }
+
+        /* Filter and Search */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-lg) 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--heading-font);
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: var(--spacing-lg) auto;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border: 1px solid var(--light-gray);
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: var(--body-font);
+        }
+
+        .search-container i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background-color: white;
+            color: var(--dark-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            max-width: 350px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .notification i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-modal {
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .success-modal {
+            transform: translateY(0);
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .success-modal h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.8rem;
+        }
+
+        .success-modal p {
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-color);
+        }
+
+        .modal-close {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-family: var(--heading-font);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            background-color: var(--secondary-color);
+        }
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            
+            .sponsor-form {
+                padding: var(--spacing-md);
+            }
+
+            .story-card {
+                flex-direction: column;
+            }
+
+            .story-image, .story-content {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Loading Bar -->
+    <div class="loading-bar" id="loadingBar"></div>
+    
+    <!-- Notification System -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Sponsorship Application Successful!</h3>
+            <p>Thank you for choosing to sponsor a child. Your application has been received and our team will contact you within 24 hours to complete the process.</p>
+            <button class="modal-close" id="modalClose">Continue</button>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    Lit<span>Kiran</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Get Involved <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="sponsor.html" class="active"><i class="fas fa-hand-holding-heart"></i> Sponsor a Child</a>
+                            <a href="donate.html"><i class="fas fa-donate"></i> Donate</a>
+                            <a href="volunteer.html"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                            <a href="programs.html"><i class="fas fa-project-diagram"></i> Our Programs</a>
+                            <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                        </div>
+                    </li>
+                    <li><a href="all-children.html"><i class="fas fa-child"></i> Children</a></li>
+                    <li><a href="stories.html"><i class="fa-solid fa-book-open"></i> Stories</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sponsor Hero Section -->
+    <section class="page-hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('sponsor.png') center/cover no-repeat;">
+        <div class="container">
+            <h1 class="fade-in-up">Sponsor a Child's Education</h1>
+            <p class="fade-in-up delay-1">Change a life through education with our child sponsorship program</p>
+            <a href="#sponsor-form" class="btn btn-primary fade-in-up delay-2"><i class="fas fa-heart"></i> Sponsor Now</a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Child Sponsorship Works</h2>
+                <p>Your monthly contribution provides a child with access to education and opportunities</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step fade-in-up">
+                    <div class="step-number">1</div>
+                    <h3>Choose a Child</h3>
+                    <p>Select a child you'd like to sponsor based on their profile and needs</p>
+                </div>
+                
+                <div class="process-step fade-in-up delay-1">
+                    <div class="step-number">2</div>
+                    <h3>Make Commitment</h3>
+                    <p>Commit to sponsoring the child's education for at least one year</p>
+                </div>
+                
+                <div class="process-step fade-in-up delay-2">
+                    <div class="step-number">3</div>
+                    <h3>Monthly Support</h3>
+                    <p>Your ₹1000/month covers school fees, supplies, and other needs</p>
+                </div>
+                
+                <div class="process-step fade-in-up delay-3">
+                    <div class="step-number">4</div>
+                    <h3>Stay Connected</h3>
+                    <p>Receive updates and exchange letters with your sponsored child</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Your Sponsorship Provides</h2>
+                <p>Your support makes a direct impact on a child's life and future</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Quality Education</h3>
+                    <p>School fees, books, uniforms, and educational materials</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up delay-1">
+                    <div class="benefit-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Nutrition Support</h3>
+                    <p>Daily nutritious meals and health supplements</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up delay-2">
+                    <div class="benefit-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Healthcare</h3>
+                    <p>Regular health check-ups and medical care when needed</p>
+                </div>
+                
+                <div class="benefit-card fade-in-up delay-3">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3>Basic Necessities</h3>
+                    <p>Clothing, shoes, and other essential items</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Children Grid Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Children Waiting for Sponsors</h2>
+                <p>Meet the bright children who need your support to continue their education</p>
+            </div>
+            
+            <!-- Filter and Search -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Children</button>
+                <button class="filter-btn" data-filter="urgent">Urgent Need</button>
+                <button class="filter-btn" data-filter="girls">Girls</button>
+                <button class="filter-btn" data-filter="boys">Boys</button>
+                <button class="filter-btn" data-filter="young">Youngest</button>
+                <button class="filter-btn" data-filter="oldest">Oldest</button>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="childSearch" placeholder="Search children by name, age, or location...">
+                <i class="fas fa-search"></i>
+            </div>
+            
+            <!-- Children Grid -->
+            <div class="children-grid" id="childrenGrid">
+                <!-- Child 1 -->
+                <div class="child-card" data-gender="girl" data-age="8" data-urgent="true">
+                    <div class="urgency-tag">Urgent Need</div>
+                    <div class="child-image">
+                        <img src="priya.jpg" alt="Priya, 8 years old">
+                    </div>
+                    <div class="child-info">
+                        <h3>Priya, 8</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                        <p>Priya dreams of becoming a doctor. Her father is a daily wage laborer and struggles to afford her education.</p>
+                        
+                        <div class="sponsorship-progress">
+                            <div class="progress-bar" style="width: 30%"></div>
+                        </div>
+                        <div class="progress-text">30% sponsored</div>
+                        
+                        <a href="#" class="btn btn-primary sponsor-btn" data-child="Priya"><i class="fas fa-heart"></i> Sponsor Priya</a>
+                    </div>
+                </div>
+                
+                <!-- Child 2 -->
+                <div class="child-card" data-gender="boy" data-age="10" data-urgent="false">
+                    <div class="child-image">
+                        <img src="rahul.jpg" alt="Rahul, 10 years old">
+                    </div>
+                    <div class="child-info">
+                        <h3>Rahul, 10</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Delhi, India</p>
+                        <p>Rahul is a bright student who loves mathematics. His mother is a single parent working as a housemaid.</p>
+                        
+                        <div class="sponsorship-progress">
+                            <div class="progress-bar" style="width: 65%"></div>
+                        </div>
+                        <div class="progress-text">65% sponsored</div>
+                        
+                        <a href="#" class="btn btn-primary sponsor-btn" data-child="Rahul"><i class="fas fa-heart"></i> Sponsor Rahul</a>
+                    </div>
+                </div>
+                
+                <!-- Child 3 -->
+                <div class="child-card" data-gender="girl" data-age="9" data-urgent="true">
+                    <div class="urgency-tag">Urgent Need</div>
+                    <div class="child-image">
+                        <img src="Anjali.jpg" alt="Anjali, 9 years old">
+                    </div>
+                    <div class="child-info">
+                        <h3>Anjali, 9</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Kolkata, India</p>
+                        <p>Anjali lost both her parents and lives with her grandmother. She needs sponsorship to continue her education.</p>
+                        
+                        <div class="sponsorship-progress">
+                            <div class="progress-bar" style="width: 20%"></div>
+                        </div>
+                        <div class="progress-text">20% sponsored</div>
+                        
+                        <a href="#" class="btn btn-primary sponsor-btn" data-child="Anjali"><i class="fas fa-heart"></i> Sponsor Anjali</a>
+                    </div>
+                </div>
+                
+                <!-- Child 4 -->
+                <div class="child-card" data-gender="boy" data-age="7" data-urgent="false">
+                    <div class="child-image">
+                        <img src="vikram.jpeg" alt="Vikram, 7 years old">
+                    </div>
+                    <div class="child-info">
+                        <h3>Vikram, 7</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+                        <p>Vikram comes from a tribal community and is the first in his family to attend school regularly.</p>
+                        
+                        <div class="sponsorship-progress">
+                            <div class="progress-bar" style="width: 80%"></div>
+                        </div>
+                        <div class="progress-text">80% sponsored</div>
+                        
+                        <a href="#" class="btn btn-primary sponsor-btn" data-child="Vikram"><i class="fas fa-heart"></i> Sponsor Vikram</a>
+                    </div>
+                </div>
+                
+                <!-- Child 5 -->
+                <div class="child-card" data-gender="girl" data-age="11" data-urgent="false">
+                    <div class="child-image">
+                        <img src="sneha.jpeg" alt="Sneha, 11 years old">
+                    </div>
+                    <div class="child-info">
+                        <h3>Sneha, 11</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Chennai, India</p>
+                        <p>Sneha excels in science and wants to become an engineer. Her family cannot afford secondary school fees.</p>
+                        
+                        <div class="sponsorship-progress">
+                            <div class="progress-bar" style="width: 50%"></div>
+                        </div>
+                        <div class="progress-text">50% sponsored</div>
+                        
+                        <a href="#" class="btn btn-primary sponsor-btn" data-child="Sneha"><i class="fas fa-heart"></i> Sponsor Sneha</a>
+                    </div>
+                </div>
+                
+                <!-- Child 6 -->
+                <div class="child-card" data-gender="boy" data-age="12" data-urgent="true">
+                    <div class="urgency-tag">Urgent Need</div>
+                    <div class="child-image">
+                        <img src="arjun.jpeg" alt="Arjun, 12 years old">
+                    </div>
+                    <div class="child-info">
+                        <h3>Arjun, 12</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+                        <p>Arjun's education was interrupted when his father had an accident. He needs support to get back to school.</p>
+                        
+                        <div class="sponsorship-progress">
+                            <div class="progress-bar" style="width: 15%"></div>
+                        </div>
+                        <div class="progress-text">15% sponsored</div>
+                        
+                        <a href="#" class="btn btn-primary sponsor-btn" data-child="Arjun"><i class="fas fa-heart"></i> Sponsor Arjun</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="all-children.html" class="btn btn-outline"><i class="fas fa-child"></i> View All Children</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sponsorship Success Stories</h2>
+                <p>See how sponsorship has transformed the lives of children and their communities</p>
+            </div>
+            
+            <div class="testimonial-carousel">
+                <div class="carousel-container" id="carouselContainer">
+                    <!-- Story 1 -->
+                    <div class="carousel-item">
+                        <div class="story-card">
+                            <div class="story-image">
+                                <img src="sss1.jpg" alt="Meena's success story">
+                            </div>
+                            <div class="story-content">
+                                <h3>Meena's Journey to Becoming a Teacher</h3>
+                                <p class="testimonial-quote">"Without my sponsor's support, I would have been married at 16 like my sisters. Instead, I became the first girl in my village to graduate college."</p>
+                                <p>Meena was sponsored for 10 years through Lit Kiran. She completed her education and now teaches at a primary school in her community, inspiring a new generation of girls.</p>
+                                <p><strong>Sponsored from 2008-2018</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Story 2 -->
+                    <div class="carousel-item">
+                        <div class="story-card">
+                            <div class="story-image">
+                                <img src="unnamed.png" alt="Raj's success story">
+                            </div>
+                            <div class="story-content">
+                                <h3>From Child Labor to Engineering Student</h3>
+                                <p class="testimonial-quote">"I used to work in a garment factory after school. My sponsor didn't just pay my fees—they gave me back my childhood."</p>
+                                <p>Raj was rescued from child labor at age 12. With his sponsor's support, he excelled in studies and is now pursuing an engineering degree at a prestigious university.</p>
+                                <p><strong>Sponsored from 2012-2020</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Story 3 -->
+                    <div class="carousel-item">
+                        <div class="story-card">
+                            <div class="story-image">
+                                <img src="unnamed3.png" alt="Sunita's success story">
+                            </div>
+                            <div class="story-content">
+                                <h3>Breaking the Cycle of Poverty</h3>
+                                <p class="testimonial-quote">"My sponsor believed in me when no one else did. Today, I'm able to support my family and sponsor a child myself."</p>
+                                <p>Sunita grew up in a slum with six siblings. Through sponsorship, she completed her education and now works as a nurse. She recently became a sponsor herself.</p>
+                                <p><strong>Sponsored from 2005-2015</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav" id="carouselNav">
+                    <div class="carousel-dot active" data-index="0"></div>
+                    <div class="carousel-dot" data-index="1"></div>
+                    <div class="carousel-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsor Form Section -->
+    <section class="sponsor-form-container" id="sponsor-form">
+        <div class="container">
+            <div class="sponsor-form fade-in-up">
+                <h2><i class="fas fa-heart"></i> Become a Sponsor Today</h2>
+                <p>Fill out the form below to begin your sponsorship journey. Our team will contact you within 24 hours to complete the process.</p>
+                
+                <form id="sponsorshipForm">
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label for="fullName"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                            <div class="error-message">Please enter your full name</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message">Please enter a valid email address</div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-2">
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <div class="error-message">Please enter a valid phone number</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="country"><i class="fas fa-globe"></i> Country</label>
+                            <select id="country" name="country" required>
+                                <option value="">Select your country</option>
+                                <option value="India">India</option>
+                                <option value="USA">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="Canada">Canada</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Other">Other</option>
+                            </select>
+                            <div class="error-message">Please select your country</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="childSelect"><i class="fas fa-child"></i> Select a Child to Sponsor (Optional)</label>
+                        <select id="childSelect" name="childSelect">
+                            <option value="">I'd like to choose a specific child</option>
+                            <option value="Priya">Priya, 8 (Mumbai)</option>
+                            <option value="Rahul">Rahul, 10 (Delhi)</option>
+                            <option value="Anjali">Anjali, 9 (Kolkata)</option>
+                            <option value="Vikram">Vikram, 7 (Bangalore)</option>
+                            <option value="Sneha">Sneha, 11 (Chennai)</option>
+                            <option value="Arjun">Arjun, 12 (Hyderabad)</option>
+                            <option value="any">Any child who needs it most</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Message (Optional)</label>
+                        <textarea id="message" name="message" placeholder="Tell us why you'd like to become a sponsor or any questions you might have..."></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I understand that sponsorship is a ₹1000/month commitment and I agree to the terms of sponsorship</label>
+                        <div class="error-message">You must agree to the terms</div>
+                    </div>
+                    
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="updates" name="updates" checked>
+                        <label for="updates">I would like to receive updates about my sponsored child and Lit Kiran's work</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" id="submitBtn">
+                        <span class="spinner" id="submitSpinner"></span>
+                        <span>Submit Sponsorship Application</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about child sponsorship</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-question-circle"></i> How long does sponsorship last?</h3>
+                        <p>We request a minimum commitment of one year, but many sponsors continue until their child completes their education. You can discontinue at any time with 30 days notice.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-question-circle"></i> Can I communicate with the child I sponsor?</h3>
+                    <p>Yes! You can exchange letters, emails, and even schedule video calls. We encourage sponsors to build relationships with their sponsored children while maintaining appropriate boundaries.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-question-circle"></i> How is my donation used?</h3>
+                        <p>85% of your donation goes directly to program costs (education, nutrition, healthcare). 10% supports administration, and 5% goes toward fundraising efforts. We provide detailed financial reports annually.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3><i class="fas fa-question-circle"></i> What if the child I sponsor leaves the program?</h3>
+                        <p>If a child leaves our program (usually because they've completed their education or their family situation has improved), we'll immediately notify you and help you select another child to sponsor.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="contact.html" class="btn btn-outline"><i class="fas fa-envelope"></i> More Questions? Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><i class="fas fa-address-card"></i> About Us</h3>
+                    <p>Lit Kiran is a non-profit organization dedicated to providing quality education to underprivileged children across India since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate Supplies</a></li>
+                        <li><a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                        <li><a href="stories.html"><i class="fas fa-chevron-right"></i> Stories</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-building"></i> Malabar Hill, Mumbai, Maharashtra, India, 400006</li>
+                        <li><i class="fas fa-phone"></i> +91 9405468946</li>
+                        <li><i class="fas fa-envelope"></i> info@lit kiran.org</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-newspaper"></i> Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our success stories and impact.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lit Kiran NGO. All rights reserved. | Made with <i class="fas fa-heart"></i> for a better world</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            // Hide loader
+            document.getElementById('pageLoader').classList.add('hidden');
+            
+            // Initialize animations
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Check on load and scroll
+            checkFade();
+            window.addEventListener('scroll', checkFade);
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Dropdown menus for mobile
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 992) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Child filtering functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const childCards = document.querySelectorAll('.child-card');
+            const childSearch = document.getElementById('childSearch');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filter child cards
+                    childCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else if (filter === 'urgent') {
+                            if (card.getAttribute('data-urgent') === 'true') {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        } else if (filter === 'girls') {
+                            if (card.getAttribute('data-gender') === 'girl') {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        } else if (filter === 'boys') {
+                            if (card.getAttribute('data-gender') === 'boy') {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        } else if (filter === 'young') {
+                            // Sort by age ascending (youngest first)
+                            const childrenArray = Array.from(childCards);
+                            childrenArray.sort((a, b) => {
+                                return parseInt(a.getAttribute('data-age')) - parseInt(b.getAttribute('data-age'));
+                            });
+                            
+                            const container = document.getElementById('childrenGrid');
+                            container.innerHTML = '';
+                            childrenArray.forEach(child => container.appendChild(child));
+                            card.style.display = 'block';
+                        } else if (filter === 'oldest') {
+                            // Sort by age descending (oldest first)
+                            const childrenArray = Array.from(childCards);
+                            childrenArray.sort((a, b) => {
+                                return parseInt(b.getAttribute('data-age')) - parseInt(a.getAttribute('data-age'));
+                            });
+                            
+                            const container = document.getElementById('childrenGrid');
+                            container.innerHTML = '';
+                            childrenArray.forEach(child => container.appendChild(child));
+                            card.style.display = 'block';
+                        }
+                    });
+                });
+            });
+            
+            // Child search functionality
+            childSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                childCards.forEach(card => {
+                    const childName = card.querySelector('h3').textContent.toLowerCase();
+                    const childLocation = card.querySelector('p').textContent.toLowerCase();
+                    const childDescription = card.querySelector('p:nth-child(3)').textContent.toLowerCase();
+                    
+                    if (childName.includes(searchTerm) || childLocation.includes(searchTerm) || childDescription.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+            
+            // Sponsor button click
+            const sponsorButtons = document.querySelectorAll('.sponsor-btn');
+            
+            sponsorButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const childName = this.getAttribute('data-child');
+                    
+                    // Scroll to form
+                    document.getElementById('sponsor-form').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Set the child selection in the form
+                    document.getElementById('childSelect').value = childName;
+                    
+                    // Show notification
+                    showNotification(`You've selected to sponsor ${childName}. Please complete the form below.`);
+                });
+            });
+            
+            // Testimonial carousel
+            const carouselContainer = document.getElementById('carouselContainer');
+            const carouselDots = document.querySelectorAll('.carousel-dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Update dots
+                carouselDots.forEach(dot => dot.classList.remove('active'));
+                carouselDots[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            // Add click events to dots
+            carouselDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const slideIndex = parseInt(this.getAttribute('data-index'));
+                    showSlide(slideIndex);
+                });
+            });
+            
+            // Auto advance slides
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % carouselDots.length;
+                showSlide(currentSlide);
+            }, 5000);
+            
+            // Form validation and submission
+            const sponsorshipForm = document.getElementById('sponsorshipForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const submitSpinner = document.getElementById('submitSpinner');
+            const successModal = document.getElementById('successModal');
+            const modalClose = document.getElementById('modalClose');
+            
+            // Close modal function
+            modalClose.addEventListener('click', function() {
+                successModal.classList.remove('active');
+            });
+            
+            // Validation functions
+            function validateName() {
+                const fullName = document.getElementById('fullName');
+                const nameValue = fullName.value.trim();
+                
+                if (nameValue === '') {
+                    showError(fullName, 'Please enter your full name');
+                    return false;
+                } else if (nameValue.length < 3) {
+                    showError(fullName, 'Name must be at least 3 characters');
+                    return false;
+                } else if (!/^[a-zA-Z\s]+$/.test(nameValue)) {
+                    showError(fullName, 'Name can only contain letters and spaces');
+                    return false;
+                } else {
+                    showSuccess(fullName);
+                    return true;
+                }
+            }
+            
+            function validateEmail() {
+                const email = document.getElementById('email');
+                const emailValue = email.value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (emailValue === '') {
+                    showError(email, 'Please enter your email address');
+                    return false;
+                } else if (!emailRegex.test(emailValue)) {
+                    showError(email, 'Please enter a valid email address');
+                    return false;
+                } else {
+                    showSuccess(email);
+                    return true;
+                }
+            }
+            
+            function validatePhone() {
+                const phone = document.getElementById('phone');
+                const phoneValue = phone.value.trim();
+                // International phone number regex (allows +, numbers, spaces, hyphens, parentheses)
+                const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s\./0-9]*$/;
+                
+                if (phoneValue === '') {
+                    showError(phone, 'Please enter your phone number');
+                    return false;
+                } else if (!phoneRegex.test(phoneValue)) {
+                    showError(phone, 'Please enter a valid phone number');
+                    return false;
+                } else if (phoneValue.replace(/\D/g, '').length < 8) {
+                    showError(phone, 'Phone number must be at least 8 digits');
+                    return false;
+                } else {
+                    showSuccess(phone);
+                    return true;
+                }
+            }
+            
+            function validateCountry() {
+                const country = document.getElementById('country');
+                const countryValue = country.value;
+                
+                if (countryValue === '') {
+                    showError(country, 'Please select your country');
+                    return false;
+                } else {
+                    showSuccess(country);
+                    return true;
+                }
+            }
+            
+            function validateTerms() {
+                const terms = document.getElementById('terms');
+                
+                if (!terms.checked) {
+                    showError(terms, 'You must agree to the terms');
+                    return false;
+                } else {
+                    showSuccess(terms);
+                    return true;
+                }
+            }
+            
+            function showError(input, message) {
+                const formGroup = input.parentElement;
+                const errorMessage = formGroup.querySelector('.error-message');
+                
+                formGroup.classList.add('error');
+                formGroup.classList.remove('success');
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+            }
+            
+            function showSuccess(input) {
+                const formGroup = input.parentElement;
+                const errorMessage = formGroup.querySelector('.error-message');
+                
+                formGroup.classList.remove('error');
+                formGroup.classList.add('success');
+                errorMessage.style.display = 'none';
+            }
+            
+            // Real-time validation
+            document.getElementById('fullName').addEventListener('blur', validateName);
+            document.getElementById('email').addEventListener('blur', validateEmail);
+            document.getElementById('phone').addEventListener('blur', validatePhone);
+            document.getElementById('country').addEventListener('change', validateCountry);
+            document.getElementById('terms').addEventListener('change', validateTerms);
+            
+            // Form submission
+            sponsorshipForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Validate all fields
+                const isNameValid = validateName();
+                const isEmailValid = validateEmail();
+                const isPhoneValid = validatePhone();
+                const isCountryValid = validateCountry();
+                const isTermsValid = validateTerms();
+                
+                if (isNameValid && isEmailValid && isPhoneValid && isCountryValid && isTermsValid) {
+                    // Show loading state
+                    submitSpinner.style.display = 'inline-block';
+                    submitBtn.disabled = true;
+                    
+                    // Simulate form submission
+                    setTimeout(() => {
+                        // Hide loading state
+                        submitSpinner.style.display = 'none';
+                        submitBtn.disabled = false;
+                        
+                        // Show success modal
+                        successModal.classList.add('active');
+                        
+                        // Reset form
+                        sponsorshipForm.reset();
+                        
+                        // Remove success classes
+                        document.querySelectorAll('.form-group').forEach(group => {
+                            group.classList.remove('success');
+                        });
+                    }, 2000);
+                } else {
+                    // Scroll to first error
+                    const firstError = document.querySelector('.error');
+                    if (firstError) {
+                        firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+            
+            // Show notification function
+            function showNotification(message) {
+                const notification = document.getElementById('notification');
+                const notificationText = document.getElementById('notificationText');
+                
+                notificationText.textContent = message;
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+            }
+            
+            // Loading bar on AJAX navigation (simulated)
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') && this.getAttribute('href').startsWith('#')) return;
+                    
+                    e.preventDefault();
+                    document.getElementById('loadingBar').style.width = '100%';
+                    
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 800);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lit Kiran - Lighting up children's futures through education. Sponsor a child, donate supplies or volunteer today.">
+    <meta name="keywords" content="education, charity, sponsor child, donate, volunteer, India, non-profit">
+    <title>Lit Kiran - Light Up a Child's Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        /* Hero Sections */
+        .page-hero {
+            position: relative;
+            padding: 160px 0 100px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+            z-index: -1;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-light {
+            background-color: white;
+        }
+
+        .section-gray {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-image {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: white;
+            border-radius: var(--border-radius-lg);
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+            z-index: 10;
+        }
+
+        .modal-header {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-content {
+            padding: var(--spacing-lg);
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--primary-color);
+        }
+
+        .modal-body {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .modal-features {
+            margin: var(--spacing-md) 0;
+        }
+
+        .modal-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .modal-feature i {
+            color: var(--primary-color);
+            margin-right: var(--spacing-sm);
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .modal {
+                width: 95%;
+                max-height: 95vh;
+            }
+            
+            .modal-header {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    Lit<span>Kiran</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Get Involved <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="sponsor.html" ><i class="fas fa-hand-holding-heart"></i> Sponsor a Child</a>
+                            <a href="donate.html"><i class="fas fa-donate"></i> Donate</a>
+                            <a href="volunteer.html"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                            <a href="programs.html"><i class="fas fa-project-diagram"></i> Our Programs</a>
+                            <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                        </div>
+                    </li>
+                    <li><a href="all children.html"><i class="fas fa-child"></i> Children</a></li>
+                    <li><a href="stories.html"><i class="fa-solid fa-book-open"></i> Stories</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Program Modals -->
+    <div class="modal-overlay" id="educationModal">
+        <div class="modal">
+            <button class="modal-close" id="closeEducationModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <img src="ip.jpg" alt="Education program">
+            </div>
+            <div class="modal-content">
+                <h2 class="modal-title">Education Support Program</h2>
+                <div class="modal-body">
+                    <p>Our Education Support Program is designed to remove financial barriers that prevent children from accessing quality education. We believe education is the most powerful tool to break the cycle of poverty.</p>
+                    
+                    <div class="modal-features">
+                        <h3>What We Provide:</h3>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>School supplies including books, uniforms, and stationery</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tuition fees and exam costs coverage</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>After-school tutoring and homework assistance</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Digital literacy programs with computer access</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Scholarships for higher education</span>
+                        </div>
+                    </div>
+                    
+                    <p>Since 2015, we've supported over 5,000 children through this program, with 89% of them showing significant academic improvement within one year of joining.</p>
+                    
+                    <h3>Impact Story:</h3>
+                    <p>Riya, a 12-year-old from a rural community, was able to continue her education through our support after her father's illness made it impossible for her family to afford school expenses. She's now top of her class and dreams of becoming a doctor.</p>
+                </div>
+                <a href="donate.html" class="btn btn-primary">Support This Program</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="healthcareModal">
+        <div class="modal">
+            <button class="modal-close" id="closeHealthcareModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <img src="ah.jpg" alt="Healthcare program">
+            </div>
+            <div class="modal-content">
+                <h2 class="modal-title">Healthcare & Nutrition Program</h2>
+                <div class="modal-body">
+                    <p>Our Healthcare Program ensures that children remain healthy and able to focus on their education. We address both immediate health needs and long-term wellness through preventive care.</p>
+                    
+                    <div class="modal-features">
+                        <h3>Our Services:</h3>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Regular health check-ups and medical camps</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Nutritionally balanced meals daily</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Vaccination drives and immunization programs</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Dental and vision care services</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Health education for children and parents</span>
+                        </div>
+                    </div>
+                    
+                    <p>Last year alone, we provided over 85,000 nutritious meals and conducted health check-ups for 2,500 children, identifying and treating issues that would have otherwise gone unnoticed.</p>
+                    
+                    <h3>Impact Story:</h3>
+                    <p>Through our regular health screenings, we detected a heart condition in 8-year-old Arjun that required immediate surgery. We facilitated the procedure and after-care. Today, Arjun is healthy, active, and thriving in school.</p>
+                </div>
+                <a href="donate.html" class="btn btn-primary">Support This Program</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="communityModal">
+        <div class="modal">
+            <button class="modal-close" id="closeCommunityModal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <img src="ac.jpg" alt="Community program">
+            </div>
+            <div class="modal-content">
+                <h2 class="modal-title">Community Development Program</h2>
+                <div class="modal-body">
+                    <p>Our Community Development Program works with parents and local communities to create sustainable change that supports children's education and well-being.</p>
+                    
+                    <div class="modal-features">
+                        <h3>Our Initiatives:</h3>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Parent education programs on the importance of schooling</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Skill development and vocational training for parents</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Microfinance and self-help group initiatives</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Community infrastructure improvements</span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Advocacy for children's rights and education access</span>
+                        </div>
+                    </div>
+                    
+                    <p>We've established 35 community centers that serve as hubs for education, skill development, and community gatherings, directly impacting over 15,000 family members.</p>
+                    
+                    <h3>Impact Story:</h3>
+                    <p>In the village of Sundarpur, we helped mothers form a tailoring cooperative that now supplies uniforms to local schools. This initiative has increased family incomes by 40% and school enrollment by 25% in the community.</p>
+                </div>
+                <a href="donate.html" class="btn btn-primary">Support This Program</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="page-hero" style="background: url('background.jpg') center/cover no-repeat;">
+        <div class="container">
+            <h1>Lighting Up Children's Futures</h1>
+            <p>Join us in our mission to provide education, healthcare, and opportunities to underprivileged children across India</p>
+            <div class="hero-buttons">
+                <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                <a href="all children.html" class="btn btn-secondary">Sponsor a Child</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who We Are</h2>
+                <p>Making a difference in the lives of children since 2010</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Lit Kiran is a non-profit organization dedicated to empowering underprivileged children through education, healthcare, and community development programs. Founded in 2010, we've impacted the lives of over 10,000 children across India.</p>
+                    <p>We believe that every child deserves access to quality education and opportunities, regardless of their socioeconomic background. Our holistic approach addresses not just education but also nutrition, healthcare, and community support.</p>
+                    <p>Through our programs, we aim to break the cycle of poverty and create lasting change in communities across India.</p>
+                    <a href="about.html" class="btn btn-outline mt-3">Learn More About Us</a>
+                </div>
+                <div class="about-image fade-in-up">
+                    <img src="1.jpg" alt="Children learning in classroom">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact</h2>
+                <p>Transforming lives through education and opportunity</p>
+            </div>
+            
+            <div class="grid grid-4">
+                <div class="card text-center fade-in-up">
+                    <div class="card-content">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <p class="stat">1,200+</p>
+                        <p>Children provided with quality education annually</p>
+                    </div>
+                </div>
+                
+                <div class="card text-center fade-in-up delay-1">
+                    <div class="card-content">
+                        <h3><i class="fas fa-utensils"></i> Nutrition</h3>
+                        <p class="stat">85,000+</p>
+                        <p>Nutritious meals served to children each year</p>
+                    </div>
+                </div>
+                
+                <div class="card text-center fade-in-up delay-2">
+                    <div class="card-content">
+                        <h3><i class="fas fa-home"></i> Communities</h3>
+                        <p class="stat">35+</p>
+                        <p>Communities transformed through our programs</p>
+                    </div>
+                </div>
+                
+                <div class="card text-center fade-in-up delay-3">
+                    <div class="card-content">
+                        <h3><i class="fas fa-hand-holding-heart"></i> Volunteers</h3>
+                        <p class="stat">250+</p>
+                        <p>Dedicated volunteers supporting our mission</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Programs</h2>
+                <p>Comprehensive initiatives to support children's development</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card fade-in-up">
+                    <div class="card-image">
+                        <img src="ip.jpg" alt="Education program">
+                    </div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-book"></i> Education Support</h3>
+                        <p>We provide school supplies, tuition support, and educational resources to ensure children can continue their studies without financial barriers.</p>
+                        <a href="#" class="btn btn-outline learn-more-btn" data-modal="educationModal">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up delay-1">
+                    <div class="card-image">
+                        <img src="ah.jpg" alt="Healthcare program">
+                    </div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-heartbeat"></i> Healthcare</h3>
+                        <p>Regular health check-ups, nutrition programs, and medical support ensure children stay healthy and can focus on their education.</p>
+                        <a href="#" class="btn btn-outline learn-more-btn" data-modal="healthcareModal">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up delay-2">
+                    <div class="card-image">
+                        <img src="ac.jpg" alt="Community program">
+                    </div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-hands-helping"></i> Community Development</h3>
+                        <p>We work with parents and communities to create sustainable change through skill development and income generation programs.</p>
+                        <a href="#" class="btn btn-outline learn-more-btn" data-modal="communityModal">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="card" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white; padding: var(--spacing-xl); text-align: center;">
+                <h2>Change a Child's Life Today</h2>
+                <p>Your support can provide education, nutrition, and healthcare to a child in need. Join us in creating lasting change.</p>
+                <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-top: var(--spacing-md); flex-wrap: wrap;">
+                    <a href="donate.html" class="btn btn-outline"style="color: white; border-color: white;">Donate Now</a>
+                    <a href="all children.html" class="btn btn-outline" style="color: white; border-color: white;">Sponsor a Child</a>
+                    <a href="contact.html" class="btn btn-outline" style="color: white; border-color: white;">Volunteer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Stories of Hope</h2>
+                <p>Real stories from children whose lives have been transformed</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card fade-in-up">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-sm);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: var(--spacing-sm);">
+                                <img src="rahul.jpg" alt="Rahul" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0;">Rahul</h3>
+                                <p style="color: var(--primary-color); margin-bottom: 0;">Class 10 Student</p>
+                            </div>
+                        </div>
+                        <p>"Thanks to Lit Kiran's support, I can focus on my studies without worrying about school fees. I want to become an engineer and give back to my community."</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up delay-1">
+                    <div class="card-content">
+                        <div style="display: flex; align-items: center; margin-bottom: var(--spacing-sm);">
+                            <div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; margin-right: var(--spacing-sm);">
+                                <img src="priya.jpg" alt="Priya" style="width: 100%; height: 100%; object-fit: cover;">
+                            </div>
+                            <div>
+                                <h3 style="margin-bottom: 0;">Priya</h3>
+                                <p style="color: var(--primary-color); margin-bottom: 0;">College Student</p>
+                            </div>
+                        </div>
+                        <p>"Lit Kiran supported me through school and now I'm the first person in my family to attend college. Their mentorship program helped me believe in my dreams."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><i class="fas fa-address-card"></i> About Us</h3>
+                    <p>Lit Kiran is a non-profit organization dedicated to providing quality education to underprivileged children across India since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul>
+                          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate Supplies</a></li>
+                        <li><a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                        <li><a href="Stories.html"><i class="fas fa-chevron-right"></i>Stories</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+                     <ul>
+                        <li><i class="fas fa-building"></i> Malabar Hill, Mumbai, Maharashtra, India, 400006</li>
+                        <li><i class="fas fa-phone"></i> +91 9405468946</li>
+                        <li><i class="fas fa-envelope"></i> info@lit kiran.org</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-newspaper"></i> Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our success stories and impact.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lit Kiran NGO. All rights reserved. | Made with <i class="fas fa-heart"></i> for a better world</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            // Hide loader
+            document.getElementById('pageLoader').classList.add('hidden');
+            
+            // Initialize animations
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Check on load and scroll
+            checkFade();
+            window.addEventListener('scroll', checkFade);
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Dropdown menus for mobile
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Modal functionality
+            const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+            const modalOverlays = document.querySelectorAll('.modal-overlay');
+            const closeButtons = document.querySelectorAll('.modal-close');
+            
+            // Open modal when Learn More button is clicked
+            learnMoreButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const modalId = this.getAttribute('data-modal');
+                    document.getElementById(modalId).classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+                });
+            });
+            
+            // Close modal when close button is clicked
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal-overlay');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = ''; // Re-enable scrolling
+                });
+            });
+            
+            // Close modal when clicking outside the modal content
+            modalOverlays.forEach(overlay => {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                        document.body.style.overflow = ''; // Re-enable scrolling
+                    }
+                });
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modalOverlays.forEach(overlay => {
+                        if (overlay.classList.contains('active')) {
+                            overlay.classList.remove('active');
+                            document.body.style.overflow = ''; // Re-enable scrolling
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

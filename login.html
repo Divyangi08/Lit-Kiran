@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lit Kiran - Lighting up children's futures through education. Sponsor a child, donate supplies or volunteer today.">
+    <meta name="keywords" content="education, charity, sponsor child, donate, volunteer, India, non-profit">
+    <title>Lit Kiran - Education for Underprivileged Children</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
+    <style>
+
+        /* Auth Section Styles */
+        .auth-section {
+            padding: 100px 0 60px;
+            background-color: var(--light-color);
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .auth-container {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            min-height: 600px;
+        }
+        
+        .auth-left {
+            flex: 1;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .auth-left::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .auth-left-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .auth-left h2 {
+            font-size: 2.2rem;
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--heading-font);
+        }
+        
+        .auth-left p {
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .features-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .features-list i {
+            margin-right: var(--spacing-sm);
+            background: rgba(255, 255, 255, 0.2);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .auth-right {
+            flex: 1.2;
+            padding: var(--spacing-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        /* Login-specific styles */
+        .login-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            padding: var(--spacing-md);
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+        }
+        
+        .login-header h2 {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-xs);
+            font-family: var(--heading-font);
+        }
+        
+        .login-header p {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        /* Sign Up-specific styles */
+        .progress-bar {
+            display: flex;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .progress-bar::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--light-gray);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        
+        .progress-step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+            margin-right: 60px;
+        }
+        
+        .progress-step:last-child {
+            margin-right: 0;
+        }
+        
+        .progress-step.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .progress-step.completed {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--white);
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .form-header {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-xs);
+            font-family: var(--heading-font);
+        }
+        
+        .form-header p {
+            color: var(--text-color);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-group {
+            flex: 1;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.875rem var(--spacing-sm);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 134, 232, 0.1);
+        }
+        
+        .form-control.error {
+            border-color: #dc3545;
+        }
+        
+        .form-control.success {
+            border-color: var(--accent-color);
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .password-toggle {
+            position: relative;
+        }
+        
+        .password-toggle .toggle-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .auth-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .auth-link:hover {
+            text-decoration: underline;
+        }
+        
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+        
+        .password-strength {
+            margin-top: 0.5rem;
+            height: 5px;
+            border-radius: 5px;
+            background: var(--light-gray);
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0;
+            transition: var(--transition);
+        }
+        
+        .password-strength-text {
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+            text-align: right;
+        }
+        
+        .social-auth {
+            margin-top: var(--spacing-lg);
+            text-align: center;
+        }
+        
+        .social-auth p {
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .social-auth p::before,
+        .social-auth p::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: var(--light-gray);
+        }
+        
+        .social-auth p::before {
+            left: 0;
+        }
+        
+        .social-auth p::after {
+            right: 0;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+        
+        .social-btn.google {
+            color: #DB4437;
+        }
+        
+        .social-btn.facebook {
+            color: #4267B2;
+        }
+        
+        .social-btn.linkedin {
+            color: #0077B5;
+        }
+        
+        /* Success message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: var(--spacing-xl);
+            background: var(--light-color);
+            border-radius: var(--border-radius);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .success-message i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .success-message h3 {
+            color: var(--accent-color);
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--heading-font);
+        }
+        
+        .submit-loading {
+            display: none;
+            text-align: center;
+            margin: var(--spacing-md) 0;
+        }
+        
+        .submit-loading .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--light-gray);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.875rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+        
+        /* Page visibility */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    Lit<span>Kiran</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Get Involved <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="sponsor.html" ><i class="fas fa-hand-holding-heart"></i> Sponsor a Child</a>
+                            <a href="donate.html"><i class="fas fa-donate"></i> Donate</a>
+                            <a href="volunteer.html"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                            <a href="programs.html"><i class="fas fa-project-diagram"></i> Our Programs</a>
+                            <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                        </div>
+                    </li>
+                    <li><a href="all children.html"><i class="fas fa-child"></i> Children</a></li>
+                    <li><a href="stories.html"><i class="fa-solid fa-book-open"></i> Stories</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    <li><a href="login.html" class="btn btn-primary">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Login Page -->
+    <section class="auth-section page active" id="loginPage">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-left">
+                    <div class="auth-left-content">
+                        <h2>Welcome Back!</h2>
+                        <p>Sign in to continue making a difference in children's lives through education.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Track your sponsored child's progress</li>
+                            <li><i class="fas fa-check"></i> Manage your donations and volunteering</li>
+                            <li><i class="fas fa-check"></i> Access exclusive updates and reports</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="auth-right">
+                    <div class="login-header">
+                        <h2>Sign In</h2>
+                        <p>Access your account</p>
+                    </div>
+                    
+                    <form class="auth-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="loginEmail">Email Address</label>
+                            <input type="email" id="loginEmail" name="email" class="form-control" placeholder="your@email.com" required>
+                            <div class="error-message" id="loginEmailError">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div class="form-group password-toggle">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Enter your password" required>
+                            <span class="toggle-icon" id="toggleLoginPassword">
+                                <i class="fas fa-eye"></i>
+                            </span>
+                            <div class="error-message" id="loginPasswordError">Please enter your password</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <label for="remember">Remember me</label>
+                                </div>
+                                <a href="forgot-password.html" class="auth-link">Forgot password?</a>
+                            </div>
+                        </div>
+                        
+                        <div class="submit-loading" id="loginSubmitLoading">
+                            <div class="spinner"></div>
+                            <p>Signing in...</p>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%; margin-bottom: var(--spacing-md);" id="loginSubmitButton">Sign In</button>
+                        
+                        <div class="form-footer">
+                            <div>
+                                Don't have an account? <a href="#" class="auth-link" id="showSignUp">Sign Up</a>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Success Message (hidden by default) -->
+                    <div class="success-message" id="loginSuccessMessage">
+                        <p>Login successful! Redirecting to your dashboard...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sign Up Page -->
+    <section class="auth-section page" id="signupPage">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-left">
+                    <div class="auth-left-content">
+                        <h2>Join Our Mission</h2>
+                        <p>Create an account to start making a difference in children's lives through education.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> Sponsor a child's education</li>
+                            <li><i class="fas fa-check"></i> Track your impact with regular updates</li>
+                            <li><i class="fas fa-check"></i> Connect with other supporters</li>
+                            <li><i class="fas fa-check"></i> Access volunteering opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="auth-right">
+                    <div class="progress-bar">
+                        <div class="progress-step completed">1</div>
+                        <div class="progress-step active">2</div>
+                        <div class="progress-step">3</div>
+                    </div>
+                    
+                    <form class="auth-form" id="signupForm">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" id="step1">
+                            <div class="form-header">
+                                <h3>Personal Information</h3>
+                                <p>Tell us about yourself</p>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" class="form-control" required>
+                                    <div class="error-message" id="firstNameError">Please enter your first name</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" class="form-control" required>
+                                    <div class="error-message" id="lastNameError">Please enter your last name</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="dob">Date of Birth *</label>
+                                <input type="date" id="dob" name="dob" class="form-control" required>
+                                <div class="error-message" id="dobError">Please enter your date of birth</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Gender *</label>
+                                <div class="radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="male" name="gender" value="male" required>
+                                        <label for="male">Male</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="female" name="gender" value="female">
+                                        <label for="female">Female</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="other" name="gender" value="other">
+                                        <label for="other">Other</label>
+                                    </div>
+                                </div>
+                                <div class="error-message" id="genderError">Please select your gender</div>
+                            </div>
+                            
+                            <div class="form-footer">
+                                <div></div>
+                                <button type="button" class="btn" id="nextToStep2">Next</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Contact Information -->
+                        <div class="form-step" id="step2">
+                            <div class="form-header">
+                                <h3>Contact Information</h3>
+                                <p>How can we reach you?</p>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="mobile">Mobile Number *</label>
+                                    <input type="tel" id="mobile" name="mobile" class="form-control" placeholder="+91 " required>
+                                    <div class="error-message" id="mobileError">Please enter a valid mobile number</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-control" required>
+                                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address *</label>
+                                <textarea id="address" name="address" class="form-control" rows="3" required></textarea>
+                                <div class="error-message" id="addressError">Please enter your address</div>
+                            </div>
+                            
+                            <div class="form-footer">
+                                <button type="button" class="btn btn-outline" id="backToStep1">Back</button>
+                                <button type="button" class="btn" id="nextToStep3">Next</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Account Security -->
+                        <div class="form-step" id="step3">
+                            <div class="form-header">
+                                <h3>Account Security</h3>
+                                <p>Create secure login credentials</p>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group password-toggle">
+                                    <label for="password">Password *</label>
+                                    <input type="password" id="password" name="password" class="form-control" required>
+                                    <span class="toggle-icon" id="togglePassword">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                    <div class="error-message" id="passwordError">Password must be at least 8 characters with uppercase, lowercase, number and special character</div>
+                                    <div class="password-strength">
+                                        <div class="password-strength-bar" id="passwordStrengthBar"></div>
+                                    </div>
+                                    <div class="password-strength-text" id="passwordStrengthText"></div>
+                                </div>
+                                
+                                <div class="form-group password-toggle">
+                                    <label for="confirmPassword">Confirm Password *</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required>
+                                    <span class="toggle-icon" id="toggleConfirmPassword">
+                                        <i class="fas fa-eye"></i>
+                                    </span>
+                                    <div class="error-message" id="confirmPasswordError">Passwords do not match</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">I agree to the <a href="#" class="auth-link">Terms & Conditions</a> and <a href="#" class="auth-link">Privacy Policy</a></label>
+                                </div>
+                                <div class="error-message" id="termsError">You must accept the terms and conditions</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox-option">
+                                    <input type="checkbox" id="newsletter" name="newsletter" checked>
+                                    <label for="newsletter">Subscribe to our newsletter for updates</label>
+                                </div>
+                            </div>
+                            
+                            <div class="submit-loading" id="signupSubmitLoading">
+                                <div class="spinner"></div>
+                                <p>Creating your account...</p>
+                            </div>
+                            
+                            <button type="submit" class="btn" id="signupSubmitButton" style="width: 100%; margin-bottom: var(--spacing-md);">Create Account</button>
+                            
+                            <div class="social-auth">
+                                <p>Or sign up with</p>
+                                <div class="social-buttons">
+                                    <div class="social-btn google">
+                                        <i class="fab fa-google"></i>
+                                    </div>
+                                    <div class="social-btn facebook">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </div>
+                                    <div class="social-btn linkedin">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-footer">
+                                <div>
+                                    Already have an account? <a href="#" class="auth-link" id="showLogin">Sign In</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- Success Message (hidden by default) -->
+                    <div class="success-message" id="signupSuccessMessage">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Account Created Successfully!</h3>
+                        <p>Thank you for joining Lit Kiran. We've sent a confirmation email to your address.</p>
+                        <a href="#" class="btn" id="goToLoginAfterSignup">Continue to Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><i class="fas fa-address-card"></i> About Us</h3>
+                    <p>Lit Kiran is a non-profit organization dedicated to providing quality education to underprivileged children across India since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul>
+                          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate Supplies</a></li>
+                        <li><a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                        <li><a href="Stories.html"><i class="fas fa-chevron-right"></i>Stories</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+                     <ul>
+                        <li><i class="fas fa-building"></i> Malabar Hill, Mumbai, Maharashtra, India, 400006</li>
+                        <li><i class="fas fa-phone"></i> +91 9405468946</li>
+                        <li><i class="fas fa-envelope"></i> info@lit kiran.org</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-newspaper"></i> Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our success stories and impact.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lit Kiran NGO. All rights reserved. | Made with <i class="fas fa-heart"></i> for a better world</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            // Hide loader
+            document.getElementById('pageLoader').classList.add('hidden');
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (mobileMenuBtn && navLinks) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navLinks.classList.toggle('active');
+                    mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                });
+            }
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            if (backToTopBtn) {
+                window.addEventListener('scroll', function() {
+                    if (window.pageYOffset > 300) {
+                        backToTopBtn.classList.add('active');
+                    } else {
+                        backToTopBtn.classList.remove('active');
+                    }
+                });
+                
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+            
+            // Page navigation
+            const loginPage = document.getElementById('loginPage');
+            const signupPage = document.getElementById('signupPage');
+            const showSignUp = document.getElementById('showSignUp');
+            const showLogin = document.getElementById('showLogin');
+            const goToLoginAfterSignup = document.getElementById('goToLoginAfterSignup');
+            
+            if (showSignUp) {
+                showSignUp.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loginPage.classList.remove('active');
+                    signupPage.classList.add('active');
+                });
+            }
+            
+            if (showLogin) {
+                showLogin.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    signupPage.classList.remove('active');
+                    loginPage.classList.add('active');
+                });
+            }
+            
+            if (goToLoginAfterSignup) {
+                goToLoginAfterSignup.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    signupPage.classList.remove('active');
+                    loginPage.classList.add('active');
+                });
+            }
+            
+            // Password visibility toggle for login
+            const toggleLoginPassword = document.getElementById('toggleLoginPassword');
+            const loginPasswordInput = document.getElementById('loginPassword');
+            
+            if (toggleLoginPassword && loginPasswordInput) {
+                toggleLoginPassword.addEventListener('click', function() {
+                    const type = loginPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    loginPasswordInput.setAttribute('type', type);
+                    this.querySelector('i').classList.toggle('fa-eye');
+                    this.querySelector('i').classList.toggle('fa-eye-slash');
+                });
+            }
+            
+            // Password visibility toggle for signup
+            const togglePassword = document.getElementById('togglePassword');
+            const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            
+            if (togglePassword && passwordInput) {
+                togglePassword.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    this.querySelector('i').classList.toggle('fa-eye');
+                    this.querySelector('i').classList.toggle('fa-eye-slash');
+                });
+            }
+            
+            if (toggleConfirmPassword && confirmPasswordInput) {
+                toggleConfirmPassword.addEventListener('click', function() {
+                    const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    confirmPasswordInput.setAttribute('type', type);
+                    this.querySelector('i').classList.toggle('fa-eye');
+                    this.querySelector('i').classList.toggle('fa-eye-slash');
+                });
+            }
+            
+            // Multi-step form functionality for signup
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+            const nextToStep2 = document.getElementById('nextToStep2');
+            const backToStep1 = document.getElementById('backToStep1');
+            const nextToStep3 = document.getElementById('nextToStep3');
+            const progressSteps = document.querySelectorAll('.progress-step');
+            const signupSubmitButton = document.getElementById('signupSubmitButton');
+            const signupSubmitLoading = document.getElementById('signupSubmitLoading');
+            const signupSuccessMessage = document.getElementById('signupSuccessMessage');
+            const signupForm = document.getElementById('signupForm');
+            
+            // Move to step 2
+            if (nextToStep2) {
+                nextToStep2.addEventListener('click', function() {
+                    // Validate step 1
+                    const firstName = document.getElementById('firstName');
+                    const lastName = document.getElementById('lastName');
+                    const dob = document.getElementById('dob');
+                    const gender = document.querySelector('input[name="gender"]:checked');
+                    let isValid = true;
+                    
+                    if (!firstName.value.trim()) {
+                        document.getElementById('firstNameError').style.display = 'block';
+                        firstName.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('firstNameError').style.display = 'none';
+                        firstName.classList.remove('error');
+                    }
+                    
+                    if (!lastName.value.trim()) {
+                        document.getElementById('lastNameError').style.display = 'block';
+                        lastName.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('lastNameError').style.display = 'none';
+                        lastName.classList.remove('error');
+                    }
+                    
+                    if (!dob.value) {
+                        document.getElementById('dobError').style.display = 'block';
+                        dob.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('dobError').style.display = 'none';
+                        dob.classList.remove('error');
+                    }
+                    
+                    if (!gender) {
+                        document.getElementById('genderError').style.display = 'block';
+                        isValid = false;
+                    } else {
+                        document.getElementById('genderError').style.display = 'none';
+                    }
+                    
+                    if (isValid) {
+                        step1.classList.remove('active');
+                        step2.classList.add('active');
+                        progressSteps[0].classList.add('completed');
+                        progressSteps[1].classList.add('active');
+                    }
+                });
+            }
+            
+            // Back to step 1
+            if (backToStep1) {
+                backToStep1.addEventListener('click', function() {
+                    step2.classList.remove('active');
+                    step1.classList.add('active');
+                    progressSteps[1].classList.remove('active');
+                    progressSteps[0].classList.add('active');
+                });
+            }
+            
+            // Move to step 3
+            if (nextToStep3) {
+                nextToStep3.addEventListener('click', function() {
+                    // Validate step 2
+                    const mobile = document.getElementById('mobile');
+                    const email = document.getElementById('email');
+                    const address = document.getElementById('address');
+                    let isValid = true;
+                    
+                    if (!mobile.value.trim() || mobile.value.length < 10) {
+                        document.getElementById('mobileError').style.display = 'block';
+                        mobile.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('mobileError').style.display = 'none';
+                        mobile.classList.remove('error');
+                    }
+                    
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!email.value.trim() || !emailRegex.test(email.value)) {
+                        document.getElementById('emailError').style.display = 'block';
+                        email.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('emailError').style.display = 'none';
+                        email.classList.remove('error');
+                    }
+                    
+                    if (!address.value.trim()) {
+                        document.getElementById('addressError').style.display = 'block';
+                        address.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('addressError').style.display = 'none';
+                        address.classList.remove('error');
+                    }
+                    
+                    if (isValid) {
+                        step2.classList.remove('active');
+                        step3.classList.add('active');
+                        progressSteps[1].classList.add('completed');
+                        progressSteps[2].classList.add('active');
+                    }
+                });
+            }
+            
+            // Password strength indicator
+            if (passwordInput) {
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    const strengthBar = document.getElementById('passwordStrengthBar');
+                    const strengthText = document.getElementById('passwordStrengthText');
+                    
+                    // Reset
+                    strengthBar.style.width = '0%';
+                    strengthBar.style.backgroundColor = '#e9ecef';
+                    strengthText.textContent = '';
+                    
+                    if (password.length === 0) {
+                        return;
+                    }
+                    
+                    // Check password strength
+                    let strength = 0;
+                    let feedback = [];
+                    
+                    // Length check
+                    if (password.length >= 8) strength += 20;
+                    else feedback.push('at least 8 characters');
+                    
+                    // Lowercase check
+                    if (/[a-z]/.test(password)) strength += 20;
+                    else feedback.push('one lowercase letter');
+                    
+                    // Uppercase check
+                    if (/[A-Z]/.test(password)) strength += 20;
+                    else feedback.push('one uppercase letter');
+                    
+                    // Number check
+                    if (/[0-9]/.test(password)) strength += 20;
+                    else feedback.push('one number');
+                    
+                    // Special character check
+                    if (/[^A-Za-z0-9]/.test(password)) strength += 20;
+                    else feedback.push('one special character');
+                    
+                    // Update strength bar
+                    strengthBar.style.width = strength + '%';
+                    
+                    // Update colors and text based on strength
+                    if (strength < 40) {
+                        strengthBar.style.backgroundColor = '#dc3545';
+                        strengthText.textContent = 'Weak - Needs: ' + feedback.join(', ');
+                        strengthText.style.color = '#dc3545';
+                    } else if (strength < 80) {
+                        strengthBar.style.backgroundColor = '#ffc107';
+                        strengthText.textContent = 'Medium - Could be stronger';
+                        strengthText.style.color = '#ffc107';
+                    } else {
+                        strengthBar.style.backgroundColor = '#28a745';
+                        strengthText.textContent = 'Strong password';
+                        strengthText.style.color = '#28a745';
+                    }
+                });
+            }
+            
+            // Signup form validation and submission
+            if (signupForm) {
+                signupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate step 3
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirmPassword').value;
+                    const terms = document.getElementById('terms').checked;
+                    let isValid = true;
+                    
+                    // Password validation
+                    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                    if (!passwordRegex.test(password)) {
+                        document.getElementById('passwordError').style.display = 'block';
+                        passwordInput.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('passwordError').style.display = 'none';
+                        passwordInput.classList.remove('error');
+                    }
+                    
+                    // Confirm password validation
+                    if (password !== confirmPassword) {
+                        document.getElementById('confirmPasswordError').style.display = 'block';
+                        confirmPasswordInput.classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('confirmPasswordError').style.display = 'none';
+                        confirmPasswordInput.classList.remove('error');
+                    }
+                    
+                    // Terms validation
+                    if (!terms) {
+                        document.getElementById('termsError').style.display = 'block';
+                        isValid = false;
+                    } else {
+                        document.getElementById('termsError').style.display = 'none';
+                    }
+                    
+                    if (isValid) {
+                        // Show loading state
+                        signupSubmitButton.style.display = 'none';
+                        signupSubmitLoading.style.display = 'block';
+                        
+                        // Simulate API call (replace with actual API call)
+                        setTimeout(function() {
+                            // Hide loading state
+                            signupSubmitLoading.style.display = 'none';
+                            
+                            // Show success message
+                            signupForm.style.display = 'none';
+                            signupSuccessMessage.style.display = 'block';
+                        }, 2000);
+                    }
+                });
+            }
+            
+            // Login form validation and submission
+            const loginForm = document.getElementById('loginForm');
+            const loginSubmitButton = document.getElementById('loginSubmitButton');
+            const loginSubmitLoading = document.getElementById('loginSubmitLoading');
+            const loginSuccessMessage = document.getElementById('loginSuccessMessage');
+            
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate form
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+                    let isValid = true;
+                    
+                    // Email validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        document.getElementById('loginEmailError').style.display = 'block';
+                        document.getElementById('loginEmail').classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('loginEmailError').style.display = 'none';
+                        document.getElementById('loginEmail').classList.remove('error');
+                    }
+                    
+                    // Password validation
+                    if (!password) {
+                        document.getElementById('loginPasswordError').style.display = 'block';
+                        document.getElementById('loginPassword').classList.add('error');
+                        isValid = false;
+                    } else {
+                        document.getElementById('loginPasswordError').style.display = 'none';
+                        document.getElementById('loginPassword').classList.remove('error');
+                    }
+                    
+                    if (isValid) {
+                        // Show loading state
+                        loginSubmitButton.style.display = 'none';
+                        loginSubmitLoading.style.display = 'block';
+                        
+                        // Simulate API call (replace with actual API call)
+                        setTimeout(function() {
+                            // Hide loading state
+                            loginSubmitLoading.style.display = 'none';
+                            
+                            // Show success message
+                            loginForm.style.display = 'none';
+                            loginSuccessMessage.style.display = 'block';
+                            
+                            // Redirect after a delay
+                            setTimeout(function() {
+                                // In a real app, you would redirect to the dashboard
+                                alert('Redirecting to dashboard...');
+                            }, 1500);
+                        }, 1500);
+                    }
+                });
+            }
+            
+            // Social auth buttons
+            const socialButtons = document.querySelectorAll('.social-btn');
+            socialButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const type = this.querySelector('i').classList.contains('fa-google') ? 'Google' : 
+                                this.querySelector('i').classList.contains('fa-facebook-f') ? 'Facebook' : 'LinkedIn';
+                    alert(`Sign up with ${type} would be implemented here`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

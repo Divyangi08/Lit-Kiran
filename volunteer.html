@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Volunteer with Lit Kiran to make a difference in children's education. Teach, mentor, or help with various programs.">
+    <title>Volunteer | Lit Kiran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        /* Hero Sections */
+        .page-hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+            z-index: -1;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-light {
+            background-color: white;
+        }
+
+        .section-gray {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Volunteer Opportunities Section */
+        .opportunity-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .opportunity-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .opportunity-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+
+        .opportunity-card:hover .opportunity-icon {
+            color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .opportunity-card h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .opportunity-card p {
+            margin-bottom: 15px;
+        }
+
+        /* Volunteer Stories Section */
+        .story-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .story-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .story-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-card:hover .story-image img {
+            transform: scale(1.05);
+        }
+
+        .story-content {
+            padding: 20px;
+        }
+
+        .story-content h3 {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+
+        .story-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Process Timeline */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin: 50px auto;
+            max-width: 1000px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e2e8f0;
+            z-index: 1;
+        }
+
+        .timeline-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .step-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: #64748b;
+            padding: 0 10px;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            background: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: #f1f5f9;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+
+        /* Form Styles */
+        .volunteer-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .radio-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .radio-label input[type="radio"] {
+            width: auto;
+        }
+
+        .form-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* Form Validation Styles */
+        .error-message {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .error-message::before {
+            content: '⚠';
+            font-size: 0.9rem;
+        }
+        
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: var(--accent-color);
+        }
+        
+        .success-message {
+            background-color: var(--success-color);
+            color: white;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Story Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .story-modal {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(50px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .story-modal {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: var(--primary-color);
+        }
+
+        .modal-header {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .modal-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-content {
+            padding: 30px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        .volunteer-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .volunteer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .volunteer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .volunteer-details h4 {
+            margin-bottom: 5px;
+        }
+
+        .volunteer-details p {
+            color: #64748b;
+            margin: 0;
+        }
+
+        .story-full {
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .story-quote {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 25px 0;
+            font-style: italic;
+        }
+
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .story-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-header {
+                height: 200px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Story Modal -->
+    <div class="modal-overlay" id="storyModal">
+        <div class="story-modal">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-header">
+                <img src="" alt="Volunteer Story" id="modalImage">
+            </div>
+            <div class="modal-content">
+                <h2 id="modalTitle"></h2>
+                
+                <div class="volunteer-info">
+                    <div class="volunteer-avatar">
+                        <img src="" alt="Volunteer" id="modalAvatar">
+                    </div>
+                    <div class="volunteer-details">
+                        <h4 id="modalVolunteerName"></h4>
+                        <p id="modalVolunteerRole"></p>
+                    </div>
+                </div>
+                
+                <div class="story-full" id="modalFullStory"></div>
+                
+                <div class="story-quote" id="modalQuote"></div>
+                
+                <div class="story-stats" id="modalStats"></div>
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    Lit<span>Kiran</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Get Involved <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="sponsor.html"><i class="fas fa-hand-holding-heart"></i> Sponsor a Child</a>
+                            <a href="donate.html"><i class="fas fa-donate"></i> Donate</a>
+                            <a href="volunteer.html"class="active"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                            <a href="programs.html"><i class="fas fa-project-diagram"></i> Our Programs</a>
+                            <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                        </div>
+                    </li>
+                    <li><a href="all children.html"><i class="fas fa-child"></i> Children</a></li>
+                    <li><a href="stories.html"><i class="fa-solid fa-book-open"></i> Stories</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" style="background: url('volunteer.png') center/cover no-repeat;">
+        <div class="container">
+            <h1>Volunteer With Us</h1>
+            <p>Share your time and skills to light up children's futures through education</p>
+            <a href="#volunteer-form" class="btn btn-secondary">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Why Volunteer Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Volunteer With Lit Kiran?</h2>
+                <p>Make a meaningful impact while gaining valuable experience</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card fade-in-up">
+                    <div class="card-content">
+                        <h3><i class="fas fa-heart"></i> Make a Difference</h3>
+                        <p>At Lit Kiran, we believe that volunteers are the backbone of our organization. Your time and skills help us reach more children and create greater impact in their lives.</p>
+                        <p>As a volunteer, you'll have the opportunity to make a direct difference in children's lives, gain valuable teaching and mentoring experience, and join a community of like-minded individuals.</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up delay-1">
+                    <div class="card-image">
+                        <img src="unnamed (1).png" alt="Volunteer teaching children">
+                    </div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-users"></i> Join Our Community</h3>
+                        <p>Whether you can commit a few hours a week or several days a month, we have opportunities that can fit your schedule. We provide training and ongoing support to all our volunteers.</p>
+                        <a href="#opportunities" class="btn btn-outline">View Opportunities</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Opportunities Section -->
+    <section class="section section-gray" id="opportunities">
+        <div class="container">
+            <div class="section-title">
+                <h2>Volunteer Opportunities</h2>
+                <p>Find the perfect way to contribute based on your skills and interests</p>
+            </div>
+            
+            <div class="opportunity-cards">
+                <div class="opportunity-card fade-in-up">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Teaching Volunteer</h3>
+                    <p>Teach core subjects to children in our partner schools. Options for both in-person and online teaching.</p>
+                    <p><strong>Time Commitment:</strong> 2-5 hours per week</p>
+                    <a href="#volunteer-form" class="btn btn-outline">Apply Now</a>
+                </div>
+                
+                <div class="opportunity-card fade-in-up delay-1">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Mentor</h3>
+                    <p>Provide guidance and support to students as they navigate their educational journey.</p>
+                    <p><strong>Time Commitment:</strong> 1-2 hours per week</p>
+                    <a href="#volunteer-form" class="btn btn-outline">Apply Now</a>
+                </div>
+                
+                <div class="opportunity-card fade-in-up delay-2">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Digital Learning Facilitator</h3>
+                    <p>Help implement and support our digital education initiatives in rural schools.</p>
+                    <p><strong>Time Commitment:</strong> Flexible</p>
+                    <a href="#volunteer-form" class="btn btn-outline">Apply Now</a>
+                </div>
+                
+                <div class="opportunity-card fade-in-up">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Creative Arts Instructor</h3>
+                    <p>Teach art, music, dance, or drama to help children express themselves creatively.</p>
+                    <p><strong>Time Commitment:</strong> 2-4 hours per week</p>
+                    <a href="#volunteer-form" class="btn btn-outline">Apply Now</a>
+                </div>
+                
+                <div class="opportunity-card fade-in-up delay-1">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Fundraising Volunteer</h3>
+                    <p>Help organize events and campaigns to support our education programs.</p>
+                    <p><strong>Time Commitment:</strong> Flexible</p>
+                    <a href="#volunteer-form" class="btn btn-outline">Apply Now</a>
+                </div>
+                
+                <div class="opportunity-card fade-in-up delay-2">
+                    <div class="opportunity-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Translator/Content Creator</h3>
+                    <p>Help translate educational materials or create content for our programs.</p>
+                    <p><strong>Time Commitment:</strong> Flexible</p>
+                    <a href="#volunteer-form" class="btn btn-outline">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Stories Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Volunteer Stories</h2>
+                <p>Hear from our volunteers about their experiences</p>
+            </div>
+            
+            <div class="story-cards">
+                <div class="story-card fade-in-up" data-story="1">
+                    <div class="story-image">
+                        <img src="v1.jpg" alt="Volunteer Story">
+                    </div>
+                    <div class="story-content">
+                        <h3>Ananya's Journey</h3>
+                        <p>"Volunteering with Lit Kiran has been incredibly rewarding. Seeing my students grow in confidence and skills makes every moment worthwhile."</p>
+                        <a href="#" class="btn btn-outline read-more-btn">Read Full Story</a>
+                    </div>
+                </div>
+                
+                <div class="story-card fade-in-up delay-1" data-story="2">
+                    <div class="story-image">
+                        <img src="V2.jpg" alt="Volunteer Story">
+                    </div>
+                    <div class="story-content">
+                        <h3>Rohan's Experience</h3>
+                    <p>"Teaching math to these eager learners has been one of the most fulfilling experiences of my life. The gratitude from students and parents is humbling."</p>
+                        <a href="#" class="btn btn-outline read-more-btn">Read Full Story</a>
+                    </div>
+                </div>
+                
+                <div class="story-card fade-in-up delay-2" data-story="3">
+                    <div class="story-image">
+                        <img src="v3.jpg" alt="Volunteer Story">
+                    </div>
+                    <div class="story-content">
+                        <h3>Priya's Impact</h3>
+                        <p>"As a mentor, I've not only helped my mentee academically but also seen her blossom into a confident young woman with big dreams."</p>
+                        <a href="#" class="btn btn-outline read-more-btn">Read Full Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Requirements Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Volunteer Requirements</h2>
+                <p>What we look for in our volunteers</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="card fade-in-up">
+                    <div class="card-content">
+                        <h3><i class="fas fa-check-circle"></i> General Requirements</h3>
+                        <ul>
+                            <li>Passion for education and children's development</li>
+                            <li>Commitment to our mission and values</li>
+                            <li>Reliability and punctuality</li>
+                            <li>Patience and empathy</li>
+                            <li>Minimum age of 18 (or 16 with parental consent)</li>
+                        </ul>
+                        
+                        <h3><i class="fas fa-graduation-cap"></i> For Teaching Volunteers</h3>
+                        <ul>
+                            <li>Strong knowledge of subject matter</li>
+                            <li>Ability to explain concepts clearly</li>
+                            <li>Teaching experience preferred but not required</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up delay-1">
+                    <div class="card-content">
+                        <h3><i class="fas fa-list-ol"></i> Application Process</h3>
+                        <ol>
+                            <li>Complete the online application form</li>
+                            <li>Participate in an interview (phone or video)</li>
+                            <li>Attend orientation and training</li>
+                            <li>Begin volunteering!</li>
+                        </ol>
+                        
+                        <div class="note-box" style="background-color: #f8fafc; padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary-color); margin-top: 20px;">
+                            <h4><i class="fas fa-info-circle"></i> Note:</h4>
+                            <p>All volunteers working directly with children will be required to complete a background check for child safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Timeline Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Volunteer Process</h2>
+                <p>From application to making an impact - here's how it works</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-step fade-in-up">
+                    <div class="step-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">Application</div>
+                        <div class="step-description">Fill out our volunteer application form with your details and interests</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step fade-in-up delay-1">
+                    <div class="step-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">Interview</div>
+                        <div class="step-description">We'll schedule a conversation to learn more about you and answer your questions</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step fade-in-up delay-2">
+                    <div class="step-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">Training</div>
+                        <div class="step-description">Complete our orientation and role-specific training program</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-step fade-in-up">
+                    <div class="step-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="step-content">
+                        <div class="step-title">Volunteer</div>
+                        <div class="step-description">Start making a difference with ongoing support from our team</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Answers to common questions about volunteering</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item fade-in-up">
+                    <div class="faq-question">
+                        <span>What is the minimum time commitment required?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The time commitment varies by role. Teaching volunteers typically commit 2-5 hours per week, while mentors commit 1-2 hours per week. Some roles like fundraising or content creation offer more flexible schedules.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in-up delay-1">
+                    <div class="faq-question">
+                        <span>Do I need teaching experience to volunteer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>While teaching experience is helpful, it's not required for all roles. We provide training and support to all our volunteers. What's most important is your passion for education and willingness to learn.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in-up delay-2">
+                    <div class="faq-question">
+                        <span>Can I volunteer remotely?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer several remote volunteering opportunities including online teaching, mentoring, content creation, and translation work. Our digital learning programs especially rely on remote volunteers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in-up">
+                    <div class="faq-question">
+                        <span>Is there any cost to volunteer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>There is no fee to volunteer with Lit Kiran. For in-person volunteering, you may need to cover your own transportation costs to our program locations.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in-up delay-1">
+                    <div class="faq-question">
+                        <span>What training and support will I receive?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>All volunteers complete an orientation session and receive role-specific training. You'll also have access to ongoing support from our staff, teaching resources, and a community of fellow volunteers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item fade-in-up delay-2">
+                    <div class="faq-question">
+                        <span>Can I volunteer as a group or with my company?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We welcome corporate groups, student organizations, and other groups to volunteer together. Group volunteering opportunities include school improvement projects, special events, and more.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Form Section -->
+    <section class="section section-light" id="volunteer-form">
+        <div class="container">
+            <div class="volunteer-form-container fade-in-up">
+                <div class="section-title">
+                    <h2>Ready to Volunteer?</h2>
+                    <p>Complete the form below to start your application</p>
+                </div>
+                
+                <div class="volunteer-form">
+                    <form id="volunteerApplication">
+                        <div class="form-group">
+                            <label for="vol-name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="vol-name" name="vol-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vol-email"><i class="fas fa-envelope"></i> Email</label>
+                            <input type="email" id="vol-email" name="vol-email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vol-phone"><i class="fas fa-phone"></i> Phone Number</label>
+                            <input type="tel" id="vol-phone" name="vol-phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vol-role"><i class="fas fa-tasks"></i> Preferred Volunteer Role</label>
+                            <select id="vol-role" name="vol-role" required>
+                                <option value="">Select a role</option>
+                                <option value="teaching">Teaching Volunteer</option>
+                                <option value="mentor">Mentor</option>
+                                <option value="digital">Digital Learning Facilitator</option>
+                                <option value="arts">Creative Arts Instructor</option>
+                                <option value="fundraising">Fundraising Volunteer</option>
+                                <option value="content">Translator/Content Creator</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vol-availability"><i class="fas fa-calendar-alt"></i> Availability</label>
+                            <select id="vol-availability" name="vol-availability" required>
+                                <option value="">Select availability</option>
+                                <option value="weekdays">Weekdays</option>
+                                <option value="weekends">Weekends</option>
+                                <option value="both">Both</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vol-experience"><i class="fas fa-briefcase"></i> Relevant Experience</label>
+                            <textarea id="vol-experience" name="vol-experience" placeholder="Describe any relevant experience you have (teaching, mentoring, etc.)" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vol-why"><i class="fas fa-comment"></i> Why do you want to volunteer with Lit Kiran?</label>
+                            <textarea id="vol-why" name="vol-why" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="radio-label">
+                                <input type="checkbox" id="vol-agreement" name="vol-agreement" required>
+                                <label for="vol-agreement">I understand that all volunteers working with children will need to complete a background check.</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;"><i class="fas fa-paper-plane"></i> Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="card" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white; padding: var(--spacing-xl); text-align: center;">
+                <h2>Still Have Questions?</h2>
+                <p>If you're not sure which volunteer opportunity is right for you, or if you have any other questions, we're here to help!</p>
+                <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-top: var(--spacing-md); flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                    <a href="donate.html" class="btn btn-outline" style="color: white; border-color: white;">Make a Donation</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><i class="fas fa-address-card"></i> About Us</h3>
+                    <p>Lit Kiran is a non-profit organization dedicated to providing quality education to underprivileged children across India since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate Supplies</a></li>
+                        <li><a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                        <li><a href="Stories.html"><i class="fas fa-chevron-right"></i>Stories</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-building"></i> Malabar Hill, Mumbai, Maharashtra, India, 400006</li>
+                        <li><i class="fas fa-phone"></i> +91 9405468946</li>
+                        <li><i class="fas fa-envelope"></i> info@lit kiran.org</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-newspaper"></i> Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our success stories and impact.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lit Kiran NGO. All rights reserved. | Made with <i class="fas fa-heart"></i> for a better world</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Story data - in a real application, this would come from a database
+        const storiesData = {
+            1: {
+                title: "Ananya's Journey",
+                image: "v1.jpg",
+                avatar: "v1.jpg",
+                volunteerName: "Ananya Sharma",
+                volunteerRole: "Teaching Volunteer, 2 years",
+                fullStory: "<p>Ananya joined Lit Kiran as a teaching volunteer two years ago, bringing with her a passion for education and a desire to make a difference in underprivileged communities. She started by teaching English to primary school children in a rural village near Mumbai.</p><p>Over time, Ananya developed a comprehensive curriculum that combined traditional teaching methods with interactive activities. Her students showed remarkable improvement, with test scores increasing by an average of 40% within the first six months.</p><p>Beyond academics, Ananya initiated a reading program that encouraged children to explore books beyond their textbooks. She also organized parent-teacher meetings to involve families in the educational process, creating a supportive community around each child.</p>",
+                quote: "The spark in a child's eyes when they understand a new concept is the most rewarding thing I've ever experienced.",
+                stats: [
+                    { number: "80+", label: "Students taught" },
+                    { number: "2", label: "Years volunteering" },
+                    { number: "40%", label: "Average improvement" }
+                ]
+            },
+            2: {
+                title: "Rohan's Experience",
+                image: "V2.jpg",
+                avatar: "V2.jpg",
+                volunteerName: "Rohan Patel",
+                volunteerRole: "Math Tutor, 1 year",
+                fullStory: "<p>Rohan, an engineer by profession, decided to dedicate his weekends to teaching mathematics to middle school students. He believed that with the right approach, anyone could excel at math.</p><p>He developed innovative teaching methods using everyday objects to explain complex mathematical concepts. His students, who previously feared math, began to enjoy and look forward to his classes.</p><p>Rohan's most significant achievement was helping a group of students prepare for a regional math competition, where three of his students won awards despite competing against children from much more privileged backgrounds.</p>",
+                quote: "Mathematics is not about numbers, equations, or algorithms: it is about understanding. Watching my students develop that understanding has been incredibly fulfilling.",
+                stats: [
+                    { number: "45", label: "Students mentored" },
+                    { number: "3", label: "Competition awards" },
+                    { number: "100%", label: "Passing rate" }
+                ]
+            },
+            3: {
+                title: "Priya's Impact",
+                image: "v3.jpg",
+                avatar: "v3.jpg",
+                volunteerName: "Priya Deshmukh",
+                volunteerRole: "Mentor, 18 months",
+                fullStory: "<p>Priya joined Lit Kiran as a mentor to provide guidance and support to girls navigating the challenges of adolescence while pursuing their education. She worked with a group of 15 girls, meeting with them weekly both individually and in groups.</p><p>Under her guidance, the girls developed greater confidence, better study habits, and clearer vision for their futures. Priya helped them set academic goals, navigate personal challenges, and explore career options they hadn't previously considered.</p><p>One of her mentees, Sanya, went from being a shy, underperforming student to the class representative with dramatically improved grades. She's now aspiring to become a doctor, something she never thought possible before meeting Priya.</p>",
+                quote: "Mentoring isn't about having all the answers; it's about helping young people find their own answers and believe in their potential.",
+                stats: [
+                    { number: "15", label: "Girls mentored" },
+                    { number: "18", label: "Months volunteering" },
+                    { number: "92%", label: "Academic improvement" }
+                ]
+            }
+        };
+
+        // Form validation functions
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function validatePhone(phone) {
+            // Indian phone number validation (10 digits starting with 6-9)
+            const re = /^[6-9]\d{9}$/;
+            return re.test(phone.replace(/\D/g, ''));
+        }
+
+        function validateName(name) {
+            return name.trim().length >= 2 && /^[a-zA-Z\s]+$/.test(name);
+        }
+
+        function showError(input, message) {
+            const formGroup = input.closest('.form-group');
+            let error = formGroup.querySelector('.error-message');
+            
+            if (!error) {
+                error = document.createElement('div');
+                error.className = 'error-message';
+                formGroup.appendChild(error);
+            }
+            
+            error.textContent = message;
+            input.classList.add('error');
+        }
+
+        function clearError(input) {
+            const formGroup = input.closest('.form-group');
+            const error = formGroup.querySelector('.error-message');
+            
+            if (error) {
+                error.remove();
+            }
+            
+            input.classList.remove('error');
+        }
+
+        // Story Modal Functions
+        function openStoryModal(storyId) {
+            const story = storiesData[storyId];
+            if (!story) return;
+            
+            // Populate modal with story data
+            document.getElementById('modalImage').src = story.image;
+            document.getElementById('modalTitle').textContent = story.title;
+            document.getElementById('modalAvatar').src = story.avatar;
+            document.getElementById('modalVolunteerName').textContent = story.volunteerName;
+            document.getElementById('modalVolunteerRole').textContent = story.volunteerRole;
+            document.getElementById('modalFullStory').innerHTML = story.fullStory;
+            document.getElementById('modalQuote').textContent = story.quote;
+            
+            // Populate stats
+            const statsContainer = document.getElementById('modalStats');
+            statsContainer.innerHTML = '';
+            
+            story.stats.forEach(stat => {
+                const statElement = document.createElement('div');
+                statElement.className = 'stat-item';
+                statElement.innerHTML = `
+                    <div class="stat-number">${stat.number}</div>
+                    <div class="stat-label">${stat.label}</div>
+                `;
+                statsContainer.appendChild(statElement);
+            });
+            
+            // Show modal
+            document.getElementById('storyModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeStoryModal() {
+            document.getElementById('storyModal').classList.remove('active');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        }
+
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            // Hide loader
+            document.getElementById('pageLoader').classList.add('hidden');
+            
+            // Initialize animations
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Check on load and scroll
+            checkFade();
+            window.addEventListener('scroll', checkFade);
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Dropdown menus for mobile
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // FAQ Accordion
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const isActive = answer.classList.contains('active');
+                    
+                    // Close all answers first
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.classList.remove('active');
+                    });
+                    
+                    // Toggle current answer if it wasn't active
+                    if (!isActive) {
+                        answer.classList.add('active');
+                    }
+                });
+            });
+            
+            // Story card click handlers
+            const storyCards = document.querySelectorAll('.story-card');
+            const readMoreButtons = document.querySelectorAll('.read-more-btn');
+            
+            storyCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't open modal if clicking the button (handled separately)
+                    if (!e.target.closest('.read-more-btn')) {
+                        const storyId = this.getAttribute('data-story');
+                        openStoryModal(storyId);
+                    }
+                });
+            });
+            
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation(); // Prevent the card click event from firing
+                    const storyId = this.closest('.story-card').getAttribute('data-story');
+                    openStoryModal(storyId);
+                });
+            });
+            
+            // Modal close button
+            document.getElementById('modalClose').addEventListener('click', closeStoryModal);
+            
+            // Close modal when clicking outside content
+            document.getElementById('storyModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeStoryModal();
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeStoryModal();
+                }
+            });
+            
+            // Form submission
+            const volunteerForm = document.getElementById('volunteerApplication');
+            volunteerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Clear previous errors
+                const errorMessages = document.querySelectorAll('.error-message');
+                errorMessages.forEach(error => error.remove());
+                
+                const inputs = volunteerForm.querySelectorAll('input, select, textarea');
+                inputs.forEach(input => input.classList.remove('error'));
+                
+                // Validate all fields
+                let isValid = true;
+                
+                // Name validation
+                const nameInput = document.getElementById('vol-name');
+                if (!validateName(nameInput.value)) {
+                    showError(nameInput, 'Please enter a valid name (letters and spaces only, min 2 characters)');
+                    isValid = false;
+                }
+                
+                // Email validation
+                const emailInput = document.getElementById('vol-email');
+                if (!validateEmail(emailInput.value)) {
+                    showError(emailInput, 'Please enter a valid email address');
+                    isValid = false;
+                }
+                
+                // Phone validation
+                const phoneInput = document.getElementById('vol-phone');
+                if (!validatePhone(phoneInput.value)) {
+                    showError(phoneInput, 'Please enter a valid 10-digit Indian phone number');
+                    isValid = false;
+                }
+                
+                // Role validation
+                const roleInput = document.getElementById('vol-role');
+                if (!roleInput.value) {
+                    showError(roleInput, 'Please select a volunteer role');
+                    isValid = false;
+                }
+                
+                // Availability validation
+                const availabilityInput = document.getElementById('vol-availability');
+                if (!availabilityInput.value) {
+                    showError(availabilityInput, 'Please select your availability');
+                    isValid = false;
+                }
+                
+                // Experience validation
+                const experienceInput = document.getElementById('vol-experience');
+                if (!experienceInput.value.trim()) {
+                    showError(experienceInput, 'Please describe your relevant experience');
+                    isValid = false;
+                } else if (experienceInput.value.trim().length < 20) {
+                    showError(experienceInput, 'Please provide more details (at least 20 characters)');
+                    isValid = false;
+                }
+                
+                // Motivation validation
+                const motivationInput = document.getElementById('vol-why');
+                if (!motivationInput.value.trim()) {
+                    showError(motivationInput, 'Please tell us why you want to volunteer');
+                    isValid = false;
+                } else if (motivationInput.value.trim().length < 20) {
+                    showError(motivationInput, 'Please provide more details (at least 20 characters)');
+                    isValid = false;
+                }
+                
+                // Agreement validation
+                const agreementInput = document.getElementById('vol-agreement');
+                if (!agreementInput.checked) {
+                    showError(agreementInput, 'You must agree to complete a background check if required');
+                    isValid = false;
+                }
+                
+                if (isValid) {
+                    // Here you would typically send the data to your server
+                    // For demonstration, we'll show a success message
+                    
+                    // Create success message
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.innerHTML = '<i class="fas fa-check-circle"></i> Thank you for your volunteer application! We will review your information and contact you soon.';
+                    
+                    // Insert before form
+                    volunteerForm.parentNode.insertBefore(successMessage, volunteerForm);
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Reset form
+                    volunteerForm.reset();
+                    
+                    // Remove success message after 5 seconds
+                    setTimeout(() => {
+                        successMessage.remove();
+                    }, 5000);
+                } else {
+                    // Scroll to first error
+                    const firstError = document.querySelector('.error-message');
+                    if (firstError) {
+                        firstError.closest('.form-group').scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'center'
+                        });
+                    }
+                }
+            });
+            
+            // Add real-time validation
+            document.getElementById('vol-name').addEventListener('blur', function() {
+                if (this.value && !validateName(this.value)) {
+                    showError(this, 'Please enter a valid name (letters and spaces only, min 2 characters)');
+                } else {
+                    clearError(this);
+                }
+            });
+
+            document.getElementById('vol-email').addEventListener('blur', function() {
+                if (this.value && !validateEmail(this.value)) {
+                    showError(this, 'Please enter a valid email address');
+                } else {
+                    clearError(this);
+                }
+            });
+
+            document.getElementById('vol-phone').addEventListener('blur', function() {
+                if (this.value && !validatePhone(this.value)) {
+                    showError(this, 'Please enter a valid 10-digit Indian phone number');
+                } else {
+                    clearError(this);
+                }
+            });
+
+            document.getElementById('vol-experience').addEventListener('blur', function() {
+                if (this.value && this.value.trim().length < 20) {
+                    showError(this, 'Please provide more details (at least 20 characters)');
+                } else {
+                    clearError(this);
+                }
+            });
+
+            document.getElementById('vol-why').addEventListener('blur', function() {
+                if (this.value && this.value.trim().length < 20) {
+                    showError(this, 'Please provide more details (at least 20 characters)');
+                } else {
+                    clearError(this);
+                }
+            });
+
+            // Format phone number as user types
+            document.getElementById('vol-phone').addEventListener('input', function(e) {
+                // Remove any non-digit characters
+                let value = this.value.replace(/\D/g, '');
+                
+                // Limit to 10 digits
+                if (value.length > 10) {
+                    value = value.slice(0, 10);
+                }
+                
+                // Update the input value
+                this.value = value;
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Close mobile menu if open
+                        if (navLinks.classList.contains('active')) {
+                            navLinks.classList.remove('active');
+                            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

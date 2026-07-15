@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate | Lit Kiran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
+    <style>
+        /* Hero Sections */
+        .page-hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+            z-index: -1;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-light {
+            background-color: white;
+        }
+
+        .section-gray {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Donation Styles */
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .donation-card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .donation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .donation-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .amount-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .amount-option {
+            padding: var(--spacing-sm);
+            background: var(--light-color);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .amount-option:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .amount-option.selected {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .payment-options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .payment-option-card {
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .payment-option-card.active {
+            border-color: var(--primary-color);
+            background-color: rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+        }
+
+        .payment-option-card i {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--primary-color);
+        }
+
+        .payment-option-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+
+        .impact-item {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .impact-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .impact-amount {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Tax Benefits */
+        .tax-benefits {
+            background: #e8f5e8;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-lg) 0;
+            border-left: 4px solid var(--success-color);
+        }
+
+        .tax-benefits h4 {
+            color: var(--success-color);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* FAQ Styles */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: var(--spacing-sm);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: var(--spacing-md);
+            text-align: left;
+            background: white;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            background: white;
+            padding: 0 var(--spacing-md);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 0 0 var(--spacing-md);
+        }
+
+        /* Validation Styles */
+        .error-message {
+            color: var(--error-color);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .form-control.error {
+            border-color: var(--error-color);
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        
+        .required {
+            color: var(--error-color);
+        }
+        
+        /* Payment Processing */
+        .payment-processing {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .payment-success {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background-color: #f0fff4;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--success-color);
+        }
+        
+        .payment-success i {
+            font-size: 4rem;
+            color: var(--success-color);
+            margin-bottom: 1rem;
+        }
+        
+        .payment-details {
+            background-color: #f8fafc;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        /* Payment Method Details */
+        .payment-method-details {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f1f5f9;
+            border-radius: var(--border-radius);
+        }
+        
+        .payment-method-details.active {
+            display: block;
+        }
+        
+        .card-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        /* Success Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            width: 90%;
+            max-width: 500px;
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .modal-icon {
+            text-align: center;
+            font-size: 4rem;
+            color: var(--success-color);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        /* Real-time validation indicators */
+        .validation-icon {
+            position: absolute;
+            right: 10px;
+            top: 38px;
+            display: none;
+        }
+        
+        .form-control-wrapper {
+            position: relative;
+        }
+        
+        /* Enhanced payment options */
+        .payment-option-card .payment-checkmark {
+            display: none;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            color: var(--success-color);
+            font-size: 0.8rem;
+        }
+        
+        .payment-option-card.active .payment-checkmark {
+            display: block;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 style="text-align: center;">Thank You for Your Donation!</h2>
+            <p style="text-align: center;">Your generous contribution of <span id="modalAmount" style="font-weight: bold;"></span> will help educate underprivileged children across India.</p>
+            
+            <div class="payment-details">
+                <h4>Donation Details</h4>
+                <p id="modalTransaction"></p>
+                <p>A receipt has been sent to your email address.</p>
+            </div>
+            
+            <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+                <a href="index.html" class="btn btn-primary">Return to Homepage</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    Lit<span>Kiran</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-hand-holding-heart"></i> Get Involved <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="sponsor.html"><i class="fas fa-hand-holding-heart"></i> Sponsor a Child</a>
+                            <a href="donate.html" class="active"><i class="fas fa-donate"></i> Donate</a>
+                            <a href="volunteer.html"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                            <a href="programs.html"><i class="fas fa-project-diagram"></i> Our Programs</a>
+                            <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                        </div>
+                    </li>
+                    <li><a href="children.html"><i class="fas fa-child"></i> Children</a></li>
+                    <li><a href="stories.html"><i class="fas fa-book-open"></i> Stories</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" style="background: url('donate.png') center/cover no-repeat;">
+        <div class="container">
+            <h1>Support Our Mission</h1>
+            <p>Your donation helps provide education to underprivileged children across India</p>
+            <a href="#donate-now" class="btn btn-secondary">Donate Now</a>
+        </div>
+    </section>
+
+    <!-- Ways to Donate Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ways to Donate</h2>
+                <p>Choose the donation method that works best for you</p>
+            </div>
+            
+            <div class="donation-options">
+                <div class="donation-card fade-in-up">
+                    <div class="donation-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>One-Time Donation</h3>
+                    <p>Make a single donation to support our general education fund and immediate needs.</p>
+                    <a href="#donate-now" class="btn btn-outline">Give Once</a>
+                </div>
+                
+                <div class="donation-card fade-in-up delay-1">
+                    <div class="donation-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Monthly Giving</h3>
+                    <p>Become a monthly donor and provide sustained support for children's education.</p>
+                    <a href="#donate-now" class="btn btn-outline">Give Monthly</a>
+                </div>
+                
+                <div class="donation-card fade-in-up delay-2">
+                    <div class="donation-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>School Supplies</h3>
+                    <p>Donate specific supplies needed by our schools or sponsor a classroom.</p>
+                    <a href="#supplies" class="btn btn-outline">View Needs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Impact Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Impact</h2>
+                <p>See how your donation makes a difference</p>
+            </div>
+            
+            <div class="impact-grid">
+                <div class="impact-item fade-in-up">
+                    <div class="impact-amount">₹500</div>
+                    <p>Provides a school uniform for one child</p>
+                </div>
+                
+                <div class="impact-item fade-in-up delay-1">
+                    <div class="impact-amount">₹1,000</div>
+                    <p>Supplies textbooks for a student for one year</p>
+                </div>
+                
+                <div class="impact-item fade-in-up delay-2">
+                    <div class="impact-amount">₹2,500</div>
+                    <p>Covers school fees for a child for one term</p>
+                </div>
+                
+                <div class="impact-item fade-in-up">
+                    <div class="impact-amount">₹5,000</div>
+                    <p>Sponsors digital learning tools for a classroom</p>
+                </div>
+                
+                <div class="impact-item fade-in-up delay-1">
+                    <div class="impact-amount">₹10,000</div>
+                    <p>Supports teacher training for one educator</p>
+                </div>
+                
+                <div class="impact-item fade-in-up delay-2">
+                    <div class="impact-amount">₹25,000</div>
+                    <p>Provides school supplies for an entire classroom</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Benefits Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="tax-benefits fade-in-up">
+                <h4><i class="fas fa-file-invoice-dollar"></i> Tax Benefits</h4>
+                <p>Lit Kiran is registered under Section 80G of the Income Tax Act, 1961. Donations made to Lit Kiran are eligible for 50% tax exemption under this section. You will receive a receipt for your donation that can be used for tax deduction purposes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Form Section -->
+    <section class="section section-gray" id="donate-now">
+        <div class="container">
+            <div class="section-title">
+                <h2>Make Your Donation</h2>
+                <p>Complete the form below to contribute to children's education</p>
+            </div>
+            
+            <div class="card fade-in-up">
+                <div class="card-content">
+                    <div class="donation-type-selector" style="display: flex; justify-content: center; margin-bottom: 30px;">
+                        <button type="button" id="oneTimeBtn" class="btn btn-primary" style="margin-right: 10px;">One-Time</button>
+                        <button type="button" id="monthlyBtn" class="btn btn-outline">Monthly</button>
+                    </div>
+                    
+                    <div id="payment-processing" class="payment-processing">
+                        <div class="loader-spinner"></div>
+                        <h3>Processing your donation...</h3>
+                        <p>Please wait while we process your payment.</p>
+                    </div>
+                    
+                    <form id="donationForm">
+                        <div class="grid grid-2">
+                            <div class="form-group">
+                                <div class="form-control-wrapper">
+                                    <label for="donor-name">Full Name <span class="required">*</span></label>
+                                    <input type="text" id="donor-name" class="form-control" placeholder="Enter your name" required>
+                                    <div class="validation-icon" id="name-validation">
+                                        <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                    </div>
+                                    <div class="error-message" id="name-error">Please enter your full name</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-control-wrapper">
+                                    <label for="donor-email">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="donor-email" class="form-control" placeholder="Enter your email" required>
+                                    <div class="validation-icon" id="email-validation">
+                                        <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                    </div>
+                                    <div class="error-message" id="email-error">Please enter a valid email address</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-control-wrapper">
+                                    <label for="donor-phone">Phone Number <span class="required">*</span></label>
+                                    <input type="tel" id="donor-phone" class="form-control" placeholder="Enter your phone number" required>
+                                    <div class="validation-icon" id="phone-validation">
+                                        <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                    </div>
+                                    <div class="error-message" id="phone-error">Please enter a valid phone number</div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="form-control-wrapper">
+                                    <label for="donor-country">Country <span class="required">*</span></label>
+                                    <select id="donor-country" class="form-control" required>
+                                        <option value="">Select your country</option>
+                                        <option value="India" selected>India</option>
+                                        <option value="United States">United States</option>
+                                        <option value="United Kingdom">United Kingdom</option>
+                                        <option value="Canada">Canada</option>
+                                        <option value="Australia">Australia</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="validation-icon" id="country-validation">
+                                        <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                    </div>
+                                    <div class="error-message" id="country-error">Please select your country</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donation-amount">Donation Amount (INR) <span class="required">*</span></label>
+                            <div class="amount-options">
+                                <div class="amount-option" data-amount="500">₹500</div>
+                                <div class="amount-option" data-amount="1000">₹1,000</div>
+                                <div class="amount-option" data-amount="2500">₹2,500</div>
+                                <div class="amount-option" data-amount="5000">₹5,000</div>
+                                <div class="amount-option" id="other-amount">Other</div>
+                            </div>
+                            <div class="form-control-wrapper">
+                                <input type="number" id="custom-amount" class="form-control" placeholder="Enter custom amount" min="100" style="display: none; margin-top: 10px;">
+                                <div class="validation-icon" id="amount-validation">
+                                    <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                </div>
+                            </div>
+                            <div class="error-message" id="amount-error">Please select or enter a donation amount (minimum ₹100)</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donation-purpose">Purpose (optional)</label>
+                            <select id="donation-purpose" class="form-control">
+                                <option value="">General Donation</option>
+                                <option value="supplies">School Supplies</option>
+                                <option value="uniforms">Uniforms</option>
+                                <option value="digital">Digital Learning</option>
+                                <option value="teacher">Teacher Training</option>
+                                <option value="scholarship">Student Scholarships</option>
+                                <option value="infrastructure">School Infrastructure</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Payment Method <span class="required">*</span></label>
+                            <div class="payment-options-grid">
+                                <div class="payment-option-card active" data-method="card">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span class="payment-option-name">Card</span>
+                                    <span class="payment-checkmark"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                <div class="payment-option-card" data-method="upi">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span class="payment-option-name">UPI</span>
+                                    <span class="payment-checkmark"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                <div class="payment-option-card" data-method="netbanking">
+                                    <i class="fas fa-university"></i>
+                                    <span class="payment-option-name">NetBanking</span>
+                                    <span class="payment-checkmark"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                                <div class="payment-option-card" data-method="wallet">
+                                    <i class="fas fa-wallet"></i>
+                                    <span class="payment-option-name">Wallet</span>
+                                    <span class="payment-checkmark"><i class="fas fa-check-circle"></i></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Payment method details -->
+                            <div id="card-details" class="payment-method-details active">
+                                <div class="card-details-grid">
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            <label for="card-number">Card Number <span class="required">*</span></label>
+                                            <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19">
+                                            <div class="validation-icon" id="card-number-validation">
+                                                <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                            </div>
+                                            <div class="error-message" id="card-number-error">Please enter a valid card number</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            <label for="card-name">Name on Card <span class="required">*</span></label>
+                                            <input type="text" id="card-name" class="form-control" placeholder="John Doe">
+                                            <div class="validation-icon" id="card-name-validation">
+                                                <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                            </div>
+                                            <div class="error-message" id="card-name-error">Please enter the name on your card</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            <label for="card-expiry">Expiry Date <span class="required">*</span></label>
+                                            <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY" maxlength="5">
+                                            <div class="validation-icon" id="card-expiry-validation">
+                                                <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                            </div>
+                                            <div class="error-message" id="card-expiry-error">Please enter a valid expiry date</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-control-wrapper">
+                                            <label for="card-cvv">CVV <span class="required">*</span></label>
+                                            <input type="text" id="card-cvv" class="form-control" placeholder="123" maxlength="4">
+                                            <div class="validation-icon" id="card-cvv-validation">
+                                                <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                            </div>
+                                            <div class="error-message" id="card-cvv-error">Please enter a valid CVV</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="upi-details" class="payment-method-details">
+                                <div class="form-group">
+                                    <div class="form-control-wrapper">
+                                        <label for="upi-id">UPI ID <span class="required">*</span></label>
+                                        <input type="text" id="upi-id" class="form-control" placeholder="yourname@upi">
+                                        <div class="validation-icon" id="upi-id-validation">
+                                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                        </div>
+                                        <div class="error-message" id="upi-id-error">Please enter a valid UPI ID</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="netbanking-details" class="payment-method-details">
+                                <div class="form-group">
+                                    <div class="form-control-wrapper">
+                                        <label for="bank-name">Select Bank <span class="required">*</span></label>
+                                        <select id="bank-name" class="form-control">
+                                            <option value="">Select your bank</option>
+                                            <option value="sbi">State Bank of India</option>
+                                            <option value="hdfc">HDFC Bank</option>
+                                            <option value="icici">ICICI Bank</option>
+                                            <option value="axis">Axis Bank</option>
+                                            <option value="kotak">Kotak Mahindra Bank</option>
+                                        </select>
+                                        <div class="validation-icon" id="bank-name-validation">
+                                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                        </div>
+                                        <div class="error-message" id="bank-name-error">Please select your bank</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="wallet-details" class="payment-method-details">
+                                <div class="form-group">
+                                    <div class="form-control-wrapper">
+                                        <label for="wallet-type">Select Wallet <span class="required">*</span></label>
+                                        <select id="wallet-type" class="form-control">
+                                            <option value="">Select your wallet</option>
+                                            <option value="paytm">Paytm</option>
+                                            <option value="phonepe">PhonePe</option>
+                                            <option value="amazonpay">Amazon Pay</option>
+                                            <option value="mobikwik">MobiKwik</option>
+                                        </select>
+                                        <div class="validation-icon" id="wallet-type-validation">
+                                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                        </div>
+                                        <div class="error-message" id="wallet-type-error">Please select your wallet</div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="form-control-wrapper">
+                                        <label for="mobile-number">Mobile Number <span class="required">*</span></label>
+                                        <input type="text" id="wallet-mobile" class="form-control" placeholder="Your registered mobile number">
+                                        <div class="validation-icon" id="wallet-mobile-validation">
+                                            <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                        </div>
+                                        <div class="error-message" id="wallet-mobile-error">Please enter your registered mobile number</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="donation-message">Message (optional)</label>
+                            <textarea id="donation-message" class="form-control" placeholder="Add a personal message"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" id="tax-exemption" checked style="margin-right: 10px;">
+                                <span>I would like to receive 80G tax exemption certificate for my donation</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" id="newsletter-signup" checked style="margin-right: 10px;">
+                                <span>Subscribe to our newsletter for updates on how your donation is making an impact</span>
+                            </label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="form-control-wrapper">
+                                <label style="display: flex; align-items: center; cursor: pointer;">
+                                    <input type="checkbox" id="terms-agreement" style="margin-right: 10px;" required>
+                                    <span>I agree to the <a href="#" target="_blank">terms and conditions</a> <span class="required">*</span></span>
+                                </label>
+                                <div class="validation-icon" id="terms-validation">
+                                    <i class="fas fa-check-circle" style="color: var(--success-color);"></i>
+                                </div>
+                            </div>
+                            <div class="error-message" id="terms-error">You must agree to the terms and conditions</div>
+                        </div>
+                        
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary" style="padding: 15px 30px; font-size: 1.1rem;">
+                                <i class="fas fa-heart"></i> Donate Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Ways to Give Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Other Ways to Give</h2>
+                <p>Additional options to support our mission</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card fade-in-up">
+                    <div class="card-content">
+                        <h3><i class="fas fa-briefcase"></i> Corporate Matching</h3>
+                        <p>Many companies match employee donations to nonprofits. Check if your employer offers matching gifts.</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up delay-1">
+                    <div class="card-content">
+                        <h3><i class="fas fa-gift"></i> In-Kind Donations</h3>
+                        <p>We accept donations of new school supplies, books, and educational materials.</p>
+                    </div>
+                </div>
+                
+                <div class="card fade-in-up delay-2">
+                    <div class="card-content">
+                        <h3><i class="fas fa-hand-holding-heart"></i> Fundraise for Us</h3>
+                        <p>Create a personal fundraising campaign for your birthday or special occasion.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section section-gray">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about donating to Lit Kiran</p>
+            </div>
+            
+            <div class="faq-container fade-in-up">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is my donation tax-deductible?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, Lit Kiran is registered under Section 80G of the Income Tax Act, 1961. Donations made to Lit Kiran are eligible for 50% tax exemption. You will receive a receipt for your donation that can be used for tax deduction purposes.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How will my donation be used?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Your donation will be used to support our education programs for underprivileged children. This includes providing school supplies, uniforms, textbooks, digital learning tools, teacher training, and covering school fees for children who cannot afford them.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I donate monthly?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer monthly donation options. Monthly giving provides sustained support for our programs and helps us plan better for the future. You can set up a monthly donation through our secure payment gateway.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I get a receipt for my donation?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>You will automatically receive a receipt via email after your donation is processed. If you don't receive it within 24 hours, please contact us at donations@lit kiran.org with your donation details.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="card" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: white; padding: var(--spacing-xl); text-align: center;">
+                <h2>Join Us in Making a Difference</h2>
+                <p>Your support can transform a child's life. Whether through donations, volunteering, or spreading awareness, every action counts.</p>
+                <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-top: var(--spacing-md); flex-wrap: wrap;">
+                    <a href="#donate-now" class="btn btn-secondary">Donate Now</a>
+                    <a href="contact.html" class="btn btn-outline" style="color: white; border-color: white;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><i class="fas fa-address-card"></i> About Us</h3>
+                    <p>Lit Kiran is a non-profit organization dedicated to providing quality education to underprivileged children across India since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate Supplies</a></li>
+                        <li><a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                        <li><a href="stories.html"><i class="fas fa-chevron-right"></i> Stories</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+                     <ul>
+                        <li><i class="fas fa-building"></i> Malabar Hill, Mumbai, Maharashtra, India, 400006</li>
+                        <li><i class="fas fa-phone"></i> +91 9405468946</li>
+                        <li><i class="fas fa-envelope"></i> info@lit kiran.org</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-newspaper"></i> Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our success stories and impact.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lit Kiran NGO. All rights reserved. | Made with <i class="fas fa-heart"></i> for a better world</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            // Hide loader
+            document.getElementById('pageLoader').classList.add('hidden');
+            
+            // Initialize animations
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Check on load and scroll
+            checkFade();
+            window.addEventListener('scroll', checkFade);
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Dropdown menus for mobile
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // FAQ functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const answer = this.nextElementSibling;
+                    
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+            
+            // Amount selection
+            const amountOptions = document.querySelectorAll('.amount-option');
+            const customAmountInput = document.getElementById('custom-amount');
+            let selectedAmount = 0;
+            
+            amountOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    amountOptions.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Show custom amount input if "Other" is selected
+                    if (this.id === 'other-amount') {
+                        customAmountInput.style.display = 'block';
+                        customAmountInput.focus();
+                        selectedAmount = 0;
+                    } else {
+                        customAmountInput.style.display = 'none';
+                        selectedAmount = parseInt(this.getAttribute('data-amount'));
+                        validateAmount();
+                    }
+                });
+            });
+            
+            // Custom amount input
+            customAmountInput.addEventListener('input', function() {
+                selectedAmount = parseInt(this.value) || 0;
+                validateAmount();
+            });
+            
+            // Payment method selection
+            const paymentOptionCards = document.querySelectorAll('.payment-option-card');
+            const paymentMethodDetails = document.querySelectorAll('.payment-method-details');
+            let selectedPaymentMethod = 'card';
+            
+            paymentOptionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    paymentOptionCards.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show corresponding payment details
+                    selectedPaymentMethod = this.getAttribute('data-method');
+                    paymentMethodDetails.forEach(detail => detail.classList.remove('active'));
+                    document.getElementById(`${selectedPaymentMethod}-details`).classList.add('active');
+                });
+            });
+            
+            // Donation type selection
+            const oneTimeBtn = document.getElementById('oneTimeBtn');
+            const monthlyBtn = document.getElementById('monthlyBtn');
+            let donationType = 'one-time';
+            
+            oneTimeBtn.addEventListener('click', function() {
+                oneTimeBtn.classList.remove('btn-outline');
+                oneTimeBtn.classList.add('btn-primary');
+                monthlyBtn.classList.remove('btn-primary');
+                monthlyBtn.classList.add('btn-outline');
+                donationType = 'one-time';
+            });
+            
+            monthlyBtn.addEventListener('click', function() {
+                monthlyBtn.classList.remove('btn-outline');
+                monthlyBtn.classList.add('btn-primary');
+                oneTimeBtn.classList.remove('btn-primary');
+                oneTimeBtn.classList.add('btn-outline');
+                donationType = 'monthly';
+            });
+            
+            // Form validation and submission
+            const donationForm = document.getElementById('donationForm');
+            const successModal = document.getElementById('successModal');
+            const modalClose = document.getElementById('modalClose');
+            
+            // Close modal when clicking close button
+            modalClose.addEventListener('click', function() {
+                successModal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            successModal.addEventListener('click', function(e) {
+                if (e.target === successModal) {
+                    successModal.classList.remove('active');
+                }
+            });
+            
+            // Real-time validation for inputs
+            const donorName = document.getElementById('donor-name');
+            const donorEmail = document.getElementById('donor-email');
+            const donorPhone = document.getElementById('donor-phone');
+            const donorCountry = document.getElementById('donor-country');
+            const termsAgreement = document.getElementById('terms-agreement');
+            
+            // Add event listeners for real-time validation
+            donorName.addEventListener('blur', validateName);
+            donorEmail.addEventListener('blur', validateEmail);
+            donorPhone.addEventListener('blur', validatePhone);
+            donorCountry.addEventListener('change', validateCountry);
+            termsAgreement.addEventListener('change', validateTerms);
+            
+            // Payment method specific validation
+            document.getElementById('card-number').addEventListener('blur', validateCardNumber);
+            document.getElementById('card-name').addEventListener('blur', validateCardName);
+            document.getElementById('card-expiry').addEventListener('blur', validateCardExpiry);
+            document.getElementById('card-cvv').addEventListener('blur', validateCardCvv);
+            document.getElementById('upi-id').addEventListener('blur', validateUpiId);
+            document.getElementById('bank-name').addEventListener('change', validateBankName);
+            document.getElementById('wallet-type').addEventListener('change', validateWalletType);
+            document.getElementById('wallet-mobile').addEventListener('blur', validateWalletMobile);
+            
+            // Validation functions
+            function validateName() {
+                const nameInput = document.getElementById('donor-name');
+                const errorElement = document.getElementById('name-error');
+                const validationIcon = document.getElementById('name-validation');
+                
+                if (!nameInput.value.trim()) {
+                    showError(nameInput, errorElement, validationIcon, 'Please enter your full name');
+                    return false;
+                } else {
+                    clearError(nameInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateEmail() {
+                const emailInput = document.getElementById('donor-email');
+                const errorElement = document.getElementById('email-error');
+                const validationIcon = document.getElementById('email-validation');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (!emailInput.value.trim()) {
+                    showError(emailInput, errorElement, validationIcon, 'Please enter your email address');
+                    return false;
+                } else if (!emailRegex.test(emailInput.value)) {
+                    showError(emailInput, errorElement, validationIcon, 'Please enter a valid email address');
+                    return false;
+                } else {
+                    clearError(emailInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validatePhone() {
+                const phoneInput = document.getElementById('donor-phone');
+                const errorElement = document.getElementById('phone-error');
+                const validationIcon = document.getElementById('phone-validation');
+                const phoneRegex = /^[0-9]{10}$/;
+                
+                if (!phoneInput.value.trim()) {
+                    showError(phoneInput, errorElement, validationIcon, 'Please enter your phone number');
+                    return false;
+                } else if (!phoneRegex.test(phoneInput.value.replace(/\D/g, ''))) {
+                    showError(phoneInput, errorElement, validationIcon, 'Please enter a valid 10-digit phone number');
+                    return false;
+                } else {
+                    clearError(phoneInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateCountry() {
+                const countryInput = document.getElementById('donor-country');
+                const errorElement = document.getElementById('country-error');
+                const validationIcon = document.getElementById('country-validation');
+                
+                if (!countryInput.value) {
+                    showError(countryInput, errorElement, validationIcon, 'Please select your country');
+                    return false;
+                } else {
+                    clearError(countryInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateAmount() {
+                const errorElement = document.getElementById('amount-error');
+                const validationIcon = document.getElementById('amount-validation');
+                
+                if (selectedAmount === 0) {
+                    // Check if custom amount is entered
+                    if (customAmountInput.style.display === 'block') {
+                        selectedAmount = parseInt(customAmountInput.value) || 0;
+                    }
+                }
+                
+                if (selectedAmount < 100) {
+                    showError(null, errorElement, validationIcon, 'Please select or enter a donation amount (minimum ₹100)');
+                    return false;
+                } else {
+                    clearError(null, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validatePaymentMethod() {
+                let isValid = true;
+                
+                // Validate based on selected payment method
+                if (selectedPaymentMethod === 'card') {
+                    isValid = validateCardNumber() && 
+                              validateCardName() && 
+                              validateCardExpiry() && 
+                              validateCardCvv();
+                } else if (selectedPaymentMethod === 'upi') {
+                    isValid = validateUpiId();
+                } else if (selectedPaymentMethod === 'netbanking') {
+                    isValid = validateBankName();
+                } else if (selectedPaymentMethod === 'wallet') {
+                    isValid = validateWalletType() && validateWalletMobile();
+                }
+                
+                return isValid;
+            }
+            
+            function validateCardNumber() {
+                const cardInput = document.getElementById('card-number');
+                const errorElement = document.getElementById('card-number-error');
+                const validationIcon = document.getElementById('card-number-validation');
+                const cardRegex = /^[0-9]{16,19}$/;
+                const cardValue = cardInput.value.replace(/\s/g, '');
+                
+                if (!cardValue) {
+                    showError(cardInput, errorElement, validationIcon, 'Please enter your card number');
+                    return false;
+                } else if (!cardRegex.test(cardValue)) {
+                    showError(cardInput, errorElement, validationIcon, 'Please enter a valid card number');
+                    return false;
+                } else {
+                    clearError(cardInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateCardName() {
+                const nameInput = document.getElementById('card-name');
+                const errorElement = document.getElementById('card-name-error');
+                const validationIcon = document.getElementById('card-name-validation');
+                
+                if (!nameInput.value.trim()) {
+                    showError(nameInput, errorElement, validationIcon, 'Please enter the name on your card');
+                    return false;
+                } else {
+                    clearError(nameInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateCardExpiry() {
+                const expiryInput = document.getElementById('card-expiry');
+                const errorElement = document.getElementById('card-expiry-error');
+                const validationIcon = document.getElementById('card-expiry-validation');
+                const expiryRegex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
+                
+                if (!expiryInput.value.trim()) {
+                    showError(expiryInput, errorElement, validationIcon, 'Please enter expiry date');
+                    return false;
+                } else if (!expiryRegex.test(expiryInput.value)) {
+                    showError(expiryInput, errorElement, validationIcon, 'Please enter a valid expiry date (MM/YY)');
+                    return false;
+                } else {
+                    clearError(expiryInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateCardCvv() {
+                const cvvInput = document.getElementById('card-cvv');
+                const errorElement = document.getElementById('card-cvv-error');
+                const validationIcon = document.getElementById('card-cvv-validation');
+                const cvvRegex = /^[0-9]{3,4}$/;
+                
+                if (!cvvInput.value.trim()) {
+                    showError(cvvInput, errorElement, validationIcon, 'Please enter CVV');
+                    return false;
+                } else if (!cvvRegex.test(cvvInput.value)) {
+                    showError(cvvInput, errorElement, validationIcon, 'Please enter a valid CVV');
+                    return false;
+                } else {
+                    clearError(cvvInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateUpiId() {
+                const upiInput = document.getElementById('upi-id');
+                const errorElement = document.getElementById('upi-id-error');
+                const validationIcon = document.getElementById('upi-id-validation');
+                const upiRegex = /^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}$/;
+                
+                if (!upiInput.value.trim()) {
+                    showError(upiInput, errorElement, validationIcon, 'Please enter your UPI ID');
+                    return false;
+                } else if (!upiRegex.test(upiInput.value)) {
+                    showError(upiInput, errorElement, validationIcon, 'Please enter a valid UPI ID');
+                    return false;
+                } else {
+                    clearError(upiInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateBankName() {
+                const bankInput = document.getElementById('bank-name');
+                const errorElement = document.getElementById('bank-name-error');
+                const validationIcon = document.getElementById('bank-name-validation');
+                
+                if (!bankInput.value) {
+                    showError(bankInput, errorElement, validationIcon, 'Please select your bank');
+                    return false;
+                } else {
+                    clearError(bankInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateWalletType() {
+                const walletInput = document.getElementById('wallet-type');
+                const errorElement = document.getElementById('wallet-type-error');
+                const validationIcon = document.getElementById('wallet-type-validation');
+                
+                if (!walletInput.value) {
+                    showError(walletInput, errorElement, validationIcon, 'Please select your wallet');
+                    return false;
+                } else {
+                    clearError(walletInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateWalletMobile() {
+                const mobileInput = document.getElementById('wallet-mobile');
+                const errorElement = document.getElementById('wallet-mobile-error');
+                const validationIcon = document.getElementById('wallet-mobile-validation');
+                const mobileRegex = /^[0-9]{10}$/;
+                
+                if (!mobileInput.value.trim()) {
+                    showError(mobileInput, errorElement, validationIcon, 'Please enter your mobile number');
+                    return false;
+                } else if (!mobileRegex.test(mobileInput.value)) {
+                    showError(mobileInput, errorElement, validationIcon, 'Please enter a valid 10-digit mobile number');
+                    return false;
+                } else {
+                    clearError(mobileInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function validateTerms() {
+                const termsInput = document.getElementById('terms-agreement');
+                const errorElement = document.getElementById('terms-error');
+                const validationIcon = document.getElementById('terms-validation');
+                
+                if (!termsInput.checked) {
+                    showError(termsInput, errorElement, validationIcon, 'You must agree to the terms and conditions');
+                    return false;
+                } else {
+                    clearError(termsInput, errorElement, validationIcon);
+                    return true;
+                }
+            }
+            
+            function showError(input, errorElement, validationIcon, message) {
+                if (input) {
+                    input.classList.add('error');
+                }
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.style.display = 'block';
+                }
+                if (validationIcon) {
+                    validationIcon.style.display = 'none';
+                }
+            }
+            
+            function clearError(input, errorElement, validationIcon) {
+                if (input) {
+                    input.classList.remove('error');
+                }
+                if (errorElement) {
+                    errorElement.style.display = 'none';
+                }
+                if (validationIcon) {
+                    validationIcon.style.display = 'block';
+                }
+            }
+            
+            // Input formatting
+            document.getElementById('card-number').addEventListener('input', function(e) {
+                // Format card number with spaces
+                let value = e.target.value.replace(/\s/g, '');
+                if (value.length > 0) {
+                    value = value.match(new RegExp('.{1,4}', 'g')).join(' ');
+                }
+                e.target.value = value;
+            });
+            
+            document.getElementById('card-expiry').addEventListener('input', function(e) {
+                // Format expiry date as MM/YY
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                }
+                e.target.value = value;
+            });
+            
+            document.getElementById('card-cvv').addEventListener('input', function(e) {
+                // Only allow numbers for CVV
+                e.target.value = e.target.value.replace(/\D/g, '');
+            });
+            
+            document.getElementById('donor-phone').addEventListener('input', function(e) {
+                // Only allow numbers for phone
+                e.target.value = e.target.value.replace(/\D/g, '');
+            });
+            
+            document.getElementById('wallet-mobile').addEventListener('input', function(e) {
+                // Only allow numbers for mobile
+                e.target.value = e.target.value.replace(/\D/g, '');
+            });
+            
+            // Form submission
+            if (donationForm) {
+                donationForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validate all fields
+                    const isNameValid = validateName();
+                    const isEmailValid = validateEmail();
+                    const isPhoneValid = validatePhone();
+                    const isCountryValid = validateCountry();
+                    const isAmountValid = validateAmount();
+                    const isPaymentValid = validatePaymentMethod();
+                    const isTermsValid = validateTerms();
+                    
+                    if (isNameValid && isEmailValid && isPhoneValid && isCountryValid && 
+                        isAmountValid && isPaymentValid && isTermsValid) {
+                        
+                        // Show processing screen
+                        donationForm.style.display = 'none';
+                        document.getElementById('payment-processing').style.display = 'block';
+                        
+                        // Simulate payment processing
+                        setTimeout(() => {
+                            document.getElementById('payment-processing').style.display = 'none';
+                            
+                            // Show success modal
+                            document.getElementById('modalAmount').textContent = `₹${selectedAmount.toLocaleString()}`;
+                            document.getElementById('modalTransaction').textContent = 
+                                `Transaction ID: LK${Date.now()}`;
+                            successModal.classList.add('active');
+                            
+                            // You would typically send the form data to your server here
+                            console.log('Donation successful!', {
+                                name: document.getElementById('donor-name').value,
+                                email: document.getElementById('donor-email').value,
+                                phone: document.getElementById('donor-phone').value,
+                                country: document.getElementById('donor-country').value,
+                                amount: selectedAmount,
+                                type: donationType,
+                                purpose: document.getElementById('donation-purpose').value,
+                                paymentMethod: selectedPaymentMethod,
+                                message: document.getElementById('donation-message').value,
+                                taxExemption: document.getElementById('tax-exemption').checked,
+                                newsletter: document.getElementById('newsletter-signup').checked
+                            });
+                            
+                        }, 3000);
+                    } else {
+                        // Scroll to first error
+                        const firstError = document.querySelector('.error');
+                        if (firstError) {
+                            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

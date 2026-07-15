@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Programs - Lit Kiran</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styless.css">
+    <style>
+                /* Hero Sections */
+        .page-hero {
+            position: relative;
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+            z-index: -1;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-lg);
+            color: white;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-light {
+            background-color: white;
+        }
+
+        .section-gray {
+            background-color: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Card Styles */
+        .card {
+            background: white;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        /* Grid Layouts */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Programs-specific styles */
+        .program-filters {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-xl) 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--spacing-xs) var(--spacing-md);
+            background-color: var(--light-color);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .search-box {
+            margin: var(--spacing-lg) auto;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: var(--spacing-sm);
+            padding-left: 45px;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+        }
+
+        .program-card {
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .program-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+
+        .program-icon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 2;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: var(--spacing-sm) 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+
+        .program-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            margin: var(--spacing-sm);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+
+        .testimonial-content:before {
+            content: "\""; /* Quote mark */
+            position: absolute;
+            left: 0;
+            top: -15px;
+            font-size: 3rem;
+            color: var(--primary-color);
+            font-family: Arial, sans-serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: var(--spacing-sm);
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image i {
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .author-details h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .author-details p {
+            margin: 0;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .resource-card {
+            background: var(--light-color);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            margin: var(--spacing-sm);
+            transition: var(--transition);
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+            margin-top: var(--spacing-sm);
+        }
+
+        .download-btn i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover i {
+            transform: translateY(3px);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--spacing-xl) 0;
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .comparison-table th, .comparison-table td {
+            padding: var(--spacing-sm);
+            text-align: left;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .comparison-table th {
+            background: var(--light-color);
+            font-weight: 600;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tr:hover {
+            background: var(--light-color);
+        }
+
+        .check-mark {
+            color: var(--success-color);
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-lg) 0;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .stat-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        .stat-item h3 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .stat-item p {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        /* Modal Styles for Programs */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            overflow-y: auto;
+            padding: var(--spacing-md);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            border-radius: var(--border-radius-lg);
+            max-width: 900px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-50px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-body {
+            padding: var(--spacing-lg);
+        }
+
+        .modal-header {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+            flex-wrap: wrap;
+        }
+        
+        .program-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .program-detail {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .program-detail i {
+            color: var(--primary-color);
+            width: 16px;
+        }
+        
+        .program-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+        
+        .feature-icon {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-hands-helping"></i>
+                    Lit<span>Kiran</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-hand-holding-heart"class="active"></i> Get Involved <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="sponsor.html"><i class="fas fa-hand-holding-heart"></i> Sponsor a Child</a>
+                            <a href="donate.html"><i class="fas fa-donate"></i> Donate</a>
+                            <a href="volunteer.html"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                            <a href="programs.html"class="active"><i class="fas fa-project-diagram"></i> Our Programs</a>
+                            <a href="events.html"><i class="fas fa-calendar-alt"></i> Events</a>
+                        </div>
+                    </li>
+                    <li><a href="all children.html"><i class="fas fa-child"></i> Children</a></li>
+                    <li><a href="stories.html"><i class="fa-solid fa-book-open"></i> Stories</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero" style="background: url('program.png') center/cover no-repeat;">
+        <div class="container">
+            <h1>Our Programs</h1>
+            <p>Comprehensive initiatives designed to empower underprivileged children across India</p>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="section section-light" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Transforming Lives Through Education</h2>
+                <p>At Lit Kiran, we've developed a range of specialized programs to address different educational needs</p>
+            </div>
+            
+            <!-- Program Search & Filters -->
+            <div class="search-box fade-in-up">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search programs..." id="programSearch">
+            </div>
+            
+            <div class="program-filters fade-in-up">
+                <button class="filter-btn active" data-filter="all">All Programs</button>
+                <button class="filter-btn" data-filter="child">Child Education</button>
+                <button class="filter-btn" data-filter="school">School Development</button>
+                <button class="filter-btn" data-filter="community">Community Engagement</button>
+                <button class="filter-btn" data-filter="new">New Initiatives</button>
+            </div>
+            
+            <!-- Programs Grid -->
+            <div class="grid grid-3">
+                <!-- Program 1 -->
+                <div class="card program-card fade-in-up" data-category="child">
+                    <div class="program-image">
+                        <img src="classroom.jpg" alt="Child Education">
+                    </div>
+                    <div class="program-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Child Education Initiatives</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85"></div>
+                        </div>
+                        <div class="program-stats">
+                            <span>85% Complete</span>
+                            <span>2,500 Children</span>
+                        </div>
+                        <ul>
+                            <li><i class="fas fa-check-circle check-mark"></i> Primary School Sponsorship</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> After-School Learning Centers</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Scholarship Programs</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Digital Literacy Classes</li>
+                        </ul>
+                        <button class="btn btn-outline view-details" data-program="1">Learn More</button>
+                    </div>
+                </div>
+                
+                <!-- Program 2 -->
+                <div class="card program-card fade-in-up delay-1" data-category="school">
+                    <div class="program-image">
+                        <img src="development .png" alt="School Development">
+                    </div>
+                    <div class="program-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>School Development Programs</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="65"></div>
+                        </div>
+                        <div class="program-stats">
+                            <span>65% Complete</span>
+                            <span>85 Schools</span>
+                        </div>
+                        <ul>
+                            <li><i class="fas fa-check-circle check-mark"></i> Infrastructure Improvement</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Teacher Training</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Library Setup</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Computer Lab Setup</li>
+                        </ul>
+                        <button class="btn btn-outline view-details" data-program="2">Learn More</button>
+                    </div>
+                </div>
+                
+                <!-- Program 3 -->
+                <div class="card program-card fade-in-up delay-2" data-category="community">
+                    <div class="program-image">
+                        <img src="p3.jpg" alt="Community Programs">
+                    </div>
+                    <div class="program-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Community Engagement</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="45"></div>
+                        </div>
+                        <div class="program-stats">
+                            <span>45% Complete</span>
+                            <span>35 Communities</span>
+                        </div>
+                        <ul>
+                            <li><i class="fas fa-check-circle check-mark"></i> Parent Education Workshops</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Women's Literacy Programs</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Vocational Training</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Health Awareness Camps</li>
+                        </ul>
+                        <button class="btn btn-outline view-details" data-program="3">Learn More</button>
+                    </div>
+                </div>
+                
+                <!-- Program 4 -->
+                <div class="card program-card fade-in-up" data-category="new">
+                    <div class="program-image">
+                        <img src="digital.jpg" alt="Digital Education">
+                    </div>
+                    <div class="program-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Digital Education Program</h3>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="30"></div>
+                        </div>
+                        <div class="program-stats">
+                            <span>30% Complete</span>
+                            <span>15 Centers</span>
+                        </div>
+                        <ul>
+                            <li><i class="fas fa-check-circle check-mark"></i> Tablet-Based Learning</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Coding Workshops</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> Online Tutoring</li>
+                            <li><i class="fas fa-check-circle check-mark"></i> STEM Education</li>
+                        </ul>
+                        <button class="btn btn-outline view-details" data-program="4">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Program Comparison Table -->
+            <div class="fade-in-up">
+                <h2 class="section-title">Program Comparison</h2>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Program Feature</th>
+                            <th>Child Education</th>
+                            <th>School Development</th>
+                            <th>Community Engagement</th>
+                            <th>Digital Education</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primary Beneficiaries</td>
+                            <td><i class="fas fa-check check-mark"></i> Children (6-14 years)</td>
+                            <td><i class="fas fa-check check-mark"></i> Schools & Teachers</td>
+                            <td><i class="fas fa-check check-mark"></i> Families & Communities</td>
+                            <td><i class="fas fa-check check-mark"></i> Youth (10-18 years)</td>
+                        </tr>
+                        <tr>
+                            <td>Duration</td>
+                            <td>3-5 years</td>
+                            <td>2-3 years</td>
+                            <td>1-2 years</td>
+                            <td>2-4 years</td>
+                        </tr>
+                        <tr>
+                            <td>Current Reach</td>
+                            <td>2,500 children</td>
+                            <td>85 schools</td>
+                            <td>35 communities</td>
+                            <td>15 centers</td>
+                        </tr>
+                        <tr>
+                            <td>Volunteer Opportunities</td>
+                            <td><i class="fas fa-check check-mark"></i></td>
+                            <td><i class="fas fa-check check-mark"></i></td>
+                            <td><i class="fas fa-check check-mark"></i></td>
+                            <td><i class="fas fa-check check-mark"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Impact Section -->
+            <div class="section section-gray fade-in-up">
+                <div class="container">
+                    <div class="grid grid-2">
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Program Impact" style="width: 100%; border-radius: var(--border-radius);">
+                        </div>
+                        <div>
+                            <h2>Measuring Our Impact</h2>
+                            <p>Our programs have created tangible change in communities across India. Here's what we've achieved together:</p>
+                            
+                            <div class="impact-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <div>
+                                        <h3>5,000+</h3>
+                                        <p>Children Educated</p>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-school"></i>
+                                    <div>
+                                        <h3>200+</h3>
+                                        <p>Schools Supported</p>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-book"></i>
+                                    <div>
+                                        <h3>50,000+</h3>
+                                        <p>Books Distributed</p>
+                                    </div>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-laptop"></i>
+                                    <div>
+                                        <h3>100+</h3>
+                                        <p>Computer Labs Established</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonials Section -->
+            <div class="section section-light">
+                <div class="container">
+                    <h2 class="section-title">What People Say About Our Programs</h2>
+                    <div class="grid grid-3">
+                        <div class="testimonial-card fade-in-up">
+                            <div class="testimonial-content">
+                                Lit Kiran's after-school program transformed my daughter's education. She's now top of her class and dreams of becoming a doctor.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-details">
+                                    <h4>Rajesh Kumar</h4>
+                                    <p>Parent, Mumbai</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card fade-in-up delay-1">
+                            <div class="testimonial-content">
+                                The teacher training program gave me new skills to engage students. My classroom is now more interactive and students are performing better.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-details">
+                                    <h4>Sunita Patel</h4>
+                                    <p>Teacher, Gujarat</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="testimonial-card fade-in-up delay-2">
+                            <div class="testimonial-content">
+                                Volunteering with Lit Kiran's digital literacy program has been incredibly rewarding. I'm helping bridge the digital divide in rural communities.
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="author-details">
+                                    <h4>Arjun Mehta</h4>
+                                    <p>Volunteer, Bangalore</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="section section-light text-center fade-in-up">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Join us in our mission to educate underprivileged children across India</p>
+                <div style="display: flex; gap: var(--spacing-sm); justify-content: center; margin-top: var(--spacing-md); flex-wrap: wrap;">
+                    <a href="sponsor.html" class="btn btn-primary"><i class="fas fa-hand-holding-heart"></i> Sponsor a Child</a>
+                    <a href="volunteer.html" class="btn btn-secondary"><i class="fas fa-hands-helping"></i> Volunteer</a>
+                    <a href="donate.html" class="btn btn-outline"><i class="fas fa-donate"></i> Donate</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Modals -->
+    <!-- Modal 1 -->
+    <div class="modal" id="programModal1">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-image">
+                <img src="classroom.jpg" alt="Child Education">
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2>Child Education Initiatives</h2>
+                    <div class="program-details">
+                        <div class="program-detail">
+                            <i class="fas fa-child"></i>
+                            <span>2,500 Children Benefited</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Across 12 States in India</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Ongoing since 2015</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Our Child Education Initiatives focus on providing quality education to underprivileged children who lack access to proper schooling facilities. We believe every child deserves the opportunity to learn, grow, and realize their full potential.</p>
+                
+                <h3>Key Components</h3>
+                <div class="program-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h4>Primary School Sponsorship</h4>
+                            <p>Full sponsorship for children's education including tuition fees, books, and uniforms</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div>
+                            <h4>After-School Learning Centers</h4>
+                            <p>Supplementary education programs to reinforce classroom learning</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div>
+                            <h4>Scholarship Programs</h4>
+                            <p>Merit-based scholarships for talented students to continue higher education</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <div>
+                            <h4>Digital Literacy Classes</h4>
+                            <p>Introduction to computers and digital skills for the 21st century</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Impact & Achievements</h3>
+                <ul>
+                    <li>2,500 children currently enrolled in our education programs</li>
+                    <li>95% program completion rate among participating students</li>
+                    <li>78% of students showed significant improvement in academic performance</li>
+                    <li>1,200+ scholarships awarded to deserving students</li>
+                </ul>
+                
+                <div class="modal-footer">
+                    <a href="sponsor.html" class="btn btn-primary">Sponsor a Child</a>
+                    <a href="volunteer.html" class="btn btn-secondary">Volunteer</a>
+                    <a href="donate.html" class="btn btn-outline">Donate</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal" id="programModal2">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-image">
+                <img src="development .png" alt="School Development">
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2>School Development Programs</h2>
+                    <div class="program-details">
+                        <div class="program-detail">
+                            <i class="fas fa-school"></i>
+                            <span>85 Schools Supported</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Rural Areas Across India</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Ongoing since 2017</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Our School Development Programs focus on improving educational infrastructure and teaching quality in under-resourced schools. We work closely with school administrations to identify needs and implement sustainable solutions.</p>
+                
+                <h3>Key Components</h3>
+                <div class="program-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div>
+                            <h4>Infrastructure Improvement</h4>
+                            <p>Renovation of classrooms, sanitation facilities, and drinking water access</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div>
+                            <h4>Teacher Training</h4>
+                            <p>Professional development programs for teachers to enhance teaching methodologies</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <div>
+                            <h4>Library Setup</h4>
+                            <p>Establishing and stocking libraries with age-appropriate books</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <div>
+                            <h4>Computer Lab Setup</h4>
+                            <p>Setting up computer labs with internet connectivity and educational software</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Impact & Achievements</h3>
+                <ul>
+                    <li>85 schools transformed through infrastructure improvements</li>
+                    <li>1,200+ teachers trained in modern pedagogical techniques</li>
+                    <li>45 libraries established with over 50,000 books</li>
+                    <li>60 computer labs set up benefiting 15,000+ students</li>
+                </ul>
+                
+                <div class="modal-footer">
+                    <a href="donate.html" class="btn btn-secondary">Donate to Schools</a>
+                    <a href="volunteer.html" class="btn btn-secondary">Volunteer</a>
+                    <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal" id="programModal3">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-image">
+                <img src="p3.jpg" alt="Community Programs">
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2>Community Engagement Programs</h2>
+                    <div class="program-details">
+                        <div class="program-detail">
+                            <i class="fas fa-users"></i>
+                            <span>35 Communities Engaged</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Urban and Rural Areas</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Ongoing since 2018</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Our Community Engagement Programs recognize that education doesn't happen in isolation. We work with families and communities to create an ecosystem that supports and values education for all children.</p>
+                
+                <h3>Key Components</h3>
+                <div class="program-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-family"></i>
+                        </div>
+                        <div>
+                            <h4>Parent Education Workshops</h4>
+                            <p>Educating parents about the importance of education and how to support their children's learning</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div>
+                            <h4>Women's Literacy Programs</h4>
+                            <p>Adult literacy programs focusing on women's education and empowerment</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div>
+                            <h4>Vocational Training</h4>
+                            <p>Skill development programs for youth and adults to improve employability</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div>
+                            <h4>Health Awareness Camps</h4>
+                            <p>Health check-ups and awareness sessions on nutrition and hygiene</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Impact & Achievements</h3>
+                <ul>
+                    <li>35 communities actively engaged in educational initiatives</li>
+                    <li>5,000+ parents attended education awareness workshops</li>
+                    <li>2,100 women gained literacy skills through our programs</li>
+                    <li>1,800+ youth received vocational training in various trades</li>
+                </ul>
+                
+                <div class="modal-footer">
+                    <a href="volunteer.html" class="btn btn-secondary">Volunteer</a>
+                    <a href="donate.html" class="btn btn-secondary">Donate</a>
+                    <a href="contact.html" class="btn btn-secondary">Start in Your Community</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="modal" id="programModal4">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-image">
+                <img src="digital.jpg" alt="Digital Education">
+            </div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2>Digital Education Program</h2>
+                    <div class="program-details">
+                        <div class="program-detail">
+                            <i class="fas fa-laptop"></i>
+                            <span>15 Centers Established</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Technology Hubs in 8 States</span>
+                        </div>
+                        <div class="program-detail">
+                            <i class="fas fa-clock"></i>
+                            <span>Launched in 2021</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <p>Our Digital Education Program bridges the technology gap by providing underprivileged children with access to digital learning tools and skills. In today's increasingly digital world, these skills are essential for future success.</p>
+                
+                <h3>Key Components</h3>
+                <div class="program-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Tablet-Based Learning</h4>
+                            <p>Interactive learning through educational apps and digital content on tablets</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div>
+                            <h4>Coding Workshops</h4>
+                            <p>Introduction to programming concepts through visual coding platforms</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div>
+                            <h4>Online Tutoring</h4>
+                            <p>Virtual tutoring sessions connecting students with qualified teachers</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div>
+                            <h4>STEM Education</h4>
+                            <p>Hands-on learning in Science, Technology, Engineering, and Mathematics</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Impact & Achievements</h3>
+                <ul>
+                    <li>15 digital learning centers established across India</li>
+                    <li>3,500+ children introduced to digital literacy skills</li>
+                    <li>1,200+ students participated in coding workshops</li>
+                    <li>45% increase in technology aptitude among participating students</li>
+                </ul>
+                
+                <div class="modal-footer">
+                    <a href="donate.html" class="btn btn-secondary">Donate Devices</a>
+                    <a href="volunteer.html" class="btn btn-secondary">Tech Volunteer</a>
+                    <a href="contact.html" class="btn btn-secondary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3><i class="fas fa-address-card"></i> About Us</h3>
+                    <p>Lit Kiran is a non-profit organization dedicated to providing quality education to underprivileged children across India since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-link"></i> Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="sponsor.html"><i class="fas fa-chevron-right"></i> Sponsor a Child</a></li>
+                        <li><a href="donate.html"><i class="fas fa-chevron-right"></i> Donate Supplies</a></li>
+                        <li><a href="volunteer.html"><i class="fas fa-chevron-right"></i> Volunteer</a></li>
+                        <li><a href="programs.html"><i class="fas fa-chevron-right"></i> Our Programs</a></li>
+                        <li><a href="events.html"><i class="fas fa-chevron-right"></i> Events</a></li>
+                        <li><a href="Stories.html"><i class="fas fa-chevron-right"></i>Stories</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-map-marker-alt"></i> Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-building"></i> Malabar Hill, Mumbai, Maharashtra, India, 400006</li>
+                        <li><i class="fas fa-phone"></i> +91 9405468946</li>
+                        <li><i class="fas fa-envelope"></i> info@lit kiran.org</li>
+                        <li><i class="fas fa-clock"></i> Monday-Friday: 9AM - 5PM</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3><i class="fas fa-newspaper"></i> Newsletter</h3>
+                    <p>Subscribe to our newsletter to get updates on our success stories and impact.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="form-control" placeholder="Your Email Address">
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Lit Kiran NGO. All rights reserved. | Made with <i class="fas fa-heart"></i> for a better world</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Wait for page to fully load
+        window.addEventListener('load', function() {
+            // Hide loader
+            document.getElementById('pageLoader').classList.add('hidden');
+            
+            // Initialize animations
+            const fadeElements = document.querySelectorAll('.fade-in-up');
+            
+            function checkFade() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            // Check on load and scroll
+            checkFade();
+            window.addEventListener('scroll', checkFade);
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                    '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            });
+            
+            // Dropdown menus for mobile
+            const dropdowns = document.querySelectorAll('.dropdown');
+            
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+            
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Program filtering functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const programCards = document.querySelectorAll('.program-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    programCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filter) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+            
+            // Program search functionality
+            const searchInput = document.getElementById('programSearch');
+            if (searchInput) {
+                searchInput.addEventListener('keyup', () => {
+                    const searchValue = searchInput.value.toLowerCase();
+                    
+                    programCards.forEach(card => {
+                        const programTitle = card.querySelector('h3').textContent.toLowerCase();
+                        const programItems = card.querySelectorAll('li');
+                        
+                        let found = false;
+                        
+                        // Check if title matches
+                        if (programTitle.includes(searchValue)) {
+                            found = true;
+                        }
+                        
+                        // Check if any list items match
+                        programItems.forEach(item => {
+                            if (item.textContent.toLowerCase().includes(searchValue)) {
+                                found = true;
+                            }
+                        });
+                        
+                        if (found || searchValue === '') {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            }
+            
+            // Animate progress bars
+            document.querySelectorAll('.progress-fill').forEach(progress => {
+                setTimeout(() => {
+                    const width = progress.getAttribute('data-width');
+                    if (width) {
+                        progress.style.width = width + '%';
+                    }
+                }, 500);
+            });
+            
+            // Stat counter animation
+            function animateStats() {
+                const statItems = document.querySelectorAll('.stat-item h3');
+                const speed = 200;
+                
+                statItems.forEach(stat => {
+                    const targetText = stat.textContent;
+                    const target = parseInt(targetText.replace('+', ''));
+                    
+                    if (isNaN(target)) return;
+                    
+                    const increment = Math.ceil(target / speed);
+                    let current = 0;
+                    
+                    const updateStat = () => {
+                        current += increment;
+                        if (current < target) {
+                            stat.textContent = Math.floor(current) + '+';
+                            setTimeout(updateStat, 1);
+                        } else {
+                            stat.textContent = targetText;
+                        }
+                    };
+                    
+                    // Only animate when in view
+                    const observer = new IntersectionObserver((entries) => {
+                        if (entries[0].isIntersecting) {
+                            updateStat();
+                            observer.unobserve(stat);
+                        }
+                    });
+                    
+                    observer.observe(stat);
+                });
+            }
+            
+            // Initialize stat animation when stats come into view
+            const statsSection = document.querySelector('.impact-stats');
+            if (statsSection) {
+                const statsObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        animateStats();
+                        statsObserver.unobserve(statsSection);
+                    }
+                }, { threshold: 0.5 });
+
+                statsObserver.observe(statsSection);
+            }
+            
+            // Program modal functionality
+            const viewDetailsButtons = document.querySelectorAll('.view-details');
+            const modals = document.querySelectorAll('.modal');
+            const closeModalButtons = document.querySelectorAll('.close-modal');
+            
+            viewDetailsButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const programId = button.getAttribute('data-program');
+                    const modal = document.getElementById(`programModal${programId}`);
+                    if (modal) {
+                        modal.style.display = 'block';
+                        document.body.style.overflow = 'hidden'; // Prevent scrolling
+                    }
+                });
+            });
+            
+            closeModalButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const modal = button.closest('.modal');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Enable scrolling
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', (event) => {
+                modals.forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
